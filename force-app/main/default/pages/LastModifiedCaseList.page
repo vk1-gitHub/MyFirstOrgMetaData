@@ -1,0 +1,25 @@
+<apex:page sidebar="false" showHeader="false" lightningStylesheets="true" standardStylesheets="false">
+<!--<apex:slds />
+<div class="slds-scope">
+  controller="CaseEditingHandler"
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <tbody>
+                    
+                    <apex:repeat value="{!caseList}" var="cs">
+                        <tr>
+                            <td><div class="slds-truncate" title="{!cs.casenumber}"><a href="#">{!cs.casenumber}</a></div></td>
+                        </tr> 
+                    </apex:repeat>
+        </tbody>
+    </table>
+    </div>-->
+    <div id="abc"></div>
+    <apex:includeLightning />
+  
+    <script>
+    $Lightning.use("c:ServiceConsoleTestApp", function() {
+        $Lightning.createComponent("c:ServiceConsoleTest", {},"abc", function(cmp) { console.log("Loaded"); });
+    });
+    </script>
+    
+</apex:page>

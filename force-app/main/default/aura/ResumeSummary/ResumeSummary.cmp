@@ -1,0 +1,85 @@
+<aura:component controller="GetFieldSetController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+<aura:attribute name="Summary" type="List"/>    
+    
+    
+    <div class="slds-page-header slds-theme_offline slds-align_absolute-center">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                </span>
+            </div>
+            <div class="slds-media__body">
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Resume Maker">
+                      <lightning:icon iconName="utility:summary" size="small" alternativeText="Indicates summary"/>
+                    Summary</h1>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_10-of-12">
+            <span>
+                <aura:iteration items="{!v.Summary}" var="sum">
+                    <lightning:textarea label="{!sum.flabel}"
+                                     required="{!sum.freq}"
+                                     maxlength="300"/>
+                </aura:iteration>  
+            </span>
+        </div>
+        
+        <div class="slds-col slds-size_1-of-12"></div>
+    
+    
+    
+    
+    
+           <div class="slds-col slds-size_1-of-12"></div>
+                     <div class="slds-col slds-size_1-of-12">
+                         <span><lightning:button label="Back" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.handleBack}"/> 
+                         </span>
+                     </div>
+                     
+                      <div class="slds-col slds-size_1-of-12">
+                         <span><lightning:button label="Next" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.handleNext}"/>
+                         </span>
+                     </div>
+        
+                     <div class="slds-col slds-size_1-of-12">
+                         <span><lightning:button label="Save" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.clickCreateItem}"/>
+                         </span>
+                     </div>
+                     
+                      <div class="slds-col slds-size_2-of-12">
+                         <span><lightning:button label="Save And Next" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.clickCreateItem}"/>
+                         </span>
+                     </div>
+                     
+                      
+                      <div class="slds-col slds-size_1-of-12">
+                         <span><lightning:button label="Cancel" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.clickCreateItem}"/>
+                         </span>
+                     </div>
+                 
+                     <div class="slds-col slds-size_1-of-12"></div>
+               </div>  
+    
+    
+</aura:component>

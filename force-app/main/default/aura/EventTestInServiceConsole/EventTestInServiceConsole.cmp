@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <lightning:workspaceAPI aura:id="workspace" />
+    <aura:handler event="lightning:tabClosed" action="{! c.onTabClosed }"/>
+    <aura:handler event="lightning:tabCreated" action="{! c.onTabCreated }"/>
+    <aura:handler event="lightning:tabFocused" action="{! c.onTabFocused }"/>
+    <aura:handler event="lightning:tabRefreshed" action="{! c.onTabRefreshed }"/>
+    <aura:handler event="lightning:tabReplaced" action="{! c.onTabReplaced }"/>
+    <aura:handler event="lightning:tabUpdated" action="{! c.onTabUpdated }"/>
+</aura:component>

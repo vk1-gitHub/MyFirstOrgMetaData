@@ -1,0 +1,57 @@
+<apex:page standardController="Account" recordSetvar="accounts">
+  <apex:pageBlock title="Viewing Accounts">
+  <apex:form id="theForm">
+    <apex:pageBlockSection >
+      <apex:dataList var="a" value="{!accounts}" type="1">
+        {!a.name}
+      </apex:dataList>
+    </apex:pageBlockSection>
+    <apex:panelGrid columns="2">
+      <apex:commandLink action="{!previous}">Previous</apex:commandlink>
+      <apex:commandLink action="{!next}">Next</apex:commandlink>
+    </apex:panelGrid>
+  </apex:form> 
+  </apex:pageBlock>
+</apex:page>
+
+<!--<apex:page standardController="Contact" recordSetVar="con">
+    <apex:form>
+        <apex:pageBlock title="Contacts Record" id="pb">
+            <apex:pageBlockTable value="{!con}" var="c" rows="5">
+                <apex:column value="{!c.FirstName}"/>
+                <apex:column>
+                    <apex:outputField value="{!c.LastName}">
+                    <apex:inlineEditSupport />
+                    </apex:outputField>
+                </apex:column>
+                <apex:column value="{!c.Email}"/>
+                <apex:column value="{!c.Phone}"/>
+                
+            </apex:pageBlockTable>
+            
+                <apex:commandButton value="First" action="{!First}" reRender="pb"/>
+                <apex:commandButton value="Last" action="{!Last}" reRender="pb"/>
+                <apex:commandButton value="Next" action="{!Next}" reRender="pb"/>
+                <apex:commandButton value="Preveious" action="{!Previous}" reRender="pb"/>
+                <apex:commandButton value="Save Changes" action="{!Save}" reRender="pb"/>
+           
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>-->
+<!--<apex:page controller="WrappClass">
+  <apex:form >  
+    <apex:pageBlock >
+          <apex:pageBlockSection title="All Acount Record">
+            
+                 <apex:repeat value="{!wraptxt}" var="w">
+                 <apex:inputCheckbox value="{!w.check}" /> 
+                    {!w.acc.name}
+                     {!w.acc.type}
+                     {!w.acc.industry}
+                     {!w.acc.phone}
+                     {!w.acc.fax}
+                 </apex:repeat>
+          </apex:pageBlockSection>
+    </apex:pageBlock>
+      </apex:form>    
+</apex:page>-->

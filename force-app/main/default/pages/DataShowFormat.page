@@ -1,0 +1,27 @@
+<apex:page standardController="Account" recordSetVar="item">
+
+  <apex:pageBlock title="PageBlockTable">
+    <apex:pageBlockTable value="{!item}" var="a">
+      <apex:column value="{!a.name}"/>
+    </apex:pageBlockTable>
+  </apex:pageBlock>
+
+  <apex:pageBlock title="DataTable">
+    <apex:dataTable value="{!item}" var="a">
+      <apex:column value="{!a.name}"/>
+    </apex:dataTable>
+  </apex:pageBlock>
+  
+  <apex:pageBlock title="DataList">
+    <apex:datalist value="{!item}" var="a">
+      {!a.name}
+    </apex:dataList>
+  </apex:pageBlock>
+  
+  <apex:pageBlock title="Apex Repeat">
+    <apex:repeat value="{!item}" var="a">
+      {!a.name}==>
+    </apex:repeat>
+  </apex:pageBlock>
+  
+</apex:page>

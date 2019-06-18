@@ -1,0 +1,27 @@
+<aura:component controller="GetAllObjects">
+    
+    <aura:registerEvent name="selectedObj" type="c:NotesAndAttachmentEvent"/> 
+    <aura:registerEvent name="lookUpRefresh" type="c:LookUpRefreshEvent"/> 
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:handler event="c:UpdatedRadioButtonEvent" action="{!c.handleRadioButtonEvent4}"/>
+    
+    <aura:attribute name="objName" type="String[]"/>  
+    <aura:attribute name="selectedRadioButton" type="String"/>  
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_4-of-12">
+            <span>
+                <lightning:select name="selectItem" aura:id="selectedval" label="All Objects" onchange="{!c.handleChange}">                    
+                    
+                    <option value="">Select Object</option>
+                    <aura:iteration items="{!v.objName}" var="s">
+                        <option value="{!s.value}">{!s}</option>
+                    </aura:iteration>
+                    
+                </lightning:select>
+            </span>
+        </div>
+    </div>
+</aura:component>

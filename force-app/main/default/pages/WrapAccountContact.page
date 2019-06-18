@@ -1,0 +1,19 @@
+<apex:page standardController="Opportunity" recordSetVar="acc">
+  <apex:form >
+   <apex:pageBlock >
+   
+     <apex:pageBlockTable value="{!acc}" var="a">
+        <apex:column value="{!a.id}"/>
+        <apex:column value="{!a.name}"/>
+        <apex:column value="{!a.type}"/>
+        <apex:column value="{!a.Account.name}"/>
+        <apex:column value="{!a.Account.type}"/>
+        <apex:column value="{!a.Account.industry}"/>    
+    
+     </apex:pageBlockTable>
+    
+   </apex:pageBlock>
+  
+  
+</apex:form>
+ </apex:page>

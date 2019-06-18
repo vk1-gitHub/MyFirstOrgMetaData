@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION">
+    <aura:attribute name="radioButtonLabel" type="String"/>
+    <aura:attribute name="selectedObj" type="String"/>
+    <aura:attribute name="recordName" type="String"/>
+</aura:event>

@@ -1,0 +1,90 @@
+<aura:component >
+    
+     <lightning:carousel disableAutoRefresh="false" disableAutoScroll="false">
+        <lightning:carouselImage
+            src = "/docs/component-library/app/images/examples/carousel-01.png"
+            header = "First Card"
+            description = "First card description."
+            alternativeText = "First card accessible description."
+            href = "https://www.salesforce.com">
+        </lightning:carouselImage>
+        <lightning:carouselImage
+            src = "/docs/component-library/app/images/examples/carousel-02.png"
+            header = "Second Card"
+            description = "Second card description."
+            alternativeText = "Second card accessible description."
+            href = "https://www.salesforce.com">
+        </lightning:carouselImage>
+        <lightning:carouselImage
+            src = "/docs/component-library/app/images/examples/carousel-03.png"
+            header = "Third Card"
+            description = "Third card description."
+            alternativeText = "Third card accessible description."
+            href = "https://www.salesforce.com">
+        </lightning:carouselImage>
+    </lightning:carousel>
+    
+    <!--    <lightning:breadcrumbs>
+            <lightning:breadcrumb label="Parent Entity" href="path/to/place/1"/>
+            <lightning:breadcrumb label="Parent Record Name" href="path/to/place/2"/>
+        </lightning:breadcrumbs>
+ 
+    <lightning:avatar src="{!$Resource.salesforce_logo}" alternativeText="salesforce_logo"/>
+
+    <aura:attribute name="checked" type="Boolean" default="false"/>
+
+    <lightning:input name="toggle"
+                     label="Toggle Label"
+                     type="toggle"
+                     checked="{!v.checked}"
+                     onchange="{!c.handleToggleChanged}">
+    </lightning:input>
+
+    
+	 <aura:attribute name="options" type="List" default="[
+    {'label': 'Ross', 'value': 'option1'},
+    {'label': 'Rachel', 'value': 'option2'},
+    ]"/>
+    <aura:attribute name="value" type="List" default="option1"/>
+    <lightning:checkboxGroup aura:id="mygroup"
+        name="checkboxGroup"
+        label="Checkbox Group"
+        options="{! v.options }"
+        value="{! v.value }"
+        onchange="{! c.handleChange }"
+        required="true" />
+    <hr/><p>DynamicIcon</p>  
+     <lightning:dynamicIcon type="waffle" alternativeText="Your calculation is running."/>
+    <lightning:dynamicIcon type="eq" alternativeText="Your calculation is running."/>
+    <lightning:dynamicIcon type="trend" alternativeText="Your calculation is running."/>
+    <lightning:dynamicIcon type="ellie" alternativeText="Your calculation is running."/>
+    
+       <hr/><p><u>Formated Name and Address</u></p>  
+    <lightning:formattedName aura:id="myname"
+        firstName="John"
+        middleName="Middleton"
+        lastName="Doe"
+        informalName="Jo"
+        suffix="The 3rd"
+        salutation="Mr."/>
+    <br/>
+     <lightning:formattedAddress street="1 Market St."
+        city="San Francisco"
+        country="US"
+        province="CA"
+        postalCode="94105"
+    />
+    <hr/>
+    <lightning:formattedDateTime title="Date And Time" value="1470174029742" year="2-digit" month="short" day="2-digit" weekday="long"/>
+    <br/>
+    <lightning:formattedEmail value="hello@email1.com,hello@email2.com" label="Send a group email" />
+    <br/>
+ <lightning:formattedText linkify="false" value="I like salesforce.com and trailhead.salesforce.com." />
+    <br/>
+     <lightning:helptext content="This time is showing via FormattedTime" />
+    <lightning:formattedTime value="22:12:30.999Z" />
+    <br/>
+   <lightning:buttonMenu alternativeText="Toggle menu">
+        <lightning:menuItem label="Menu Item 1" value="menuitem1" iconName="utility:table" />
+    </lightning:buttonMenu>    -->
+</aura:component>

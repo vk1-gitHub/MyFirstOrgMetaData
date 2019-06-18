@@ -1,0 +1,66 @@
+<aura:component controller="CampingListController">
+    
+     <aura:registerEvent name="addItem" type="c:addItemEvent"/>
+    
+     <aura:attribute name="newItem" type="Camping_Item__c"
+                     default="{ 'sobjectType': 'Camping_Item__c',
+                                'Name': '',
+                                'Price__c': 0,
+                                'Quantity__c': 0, 
+                                'Date__c': '',
+                                'Packed__c': false }"/>
+
+    
+	 <div aria-labelledby="newCamping_Itemform">
+ 
+        <!-- BOXED AREA -->
+        <fieldset class="slds-box slds-theme--default slds-container--small">
+            <legend id="newCamping_Itemform" class="slds-text-heading--small 
+              slds-p-vertical--medium">
+              Add Camping_Item
+            </legend>
+  
+        <!-- CREATE NEW EXPENSE FORM -->
+            
+            
+            
+            <form class="slds-form--stacked">          
+            <lightning:input aura:id="Camping_Itemform" label="Camping_ItemName"
+                             name="Camping_ItemName"
+                             value="{!v.newItem.Name}"
+                             required="true"/> 
+            
+            <lightning:input type="number" aura:id="Camping_Itemform" label="Quantity"
+                             name="Camping_ItemAmount"
+                             min="1"
+                             step="1"
+                             value="{!v.newItem.Quantity__c}"
+                             messageWhenRangeUnderflow="Quantity must be graeter then or qual to 1."/>
+            
+            <lightning:input aura:id="Camping_Itemform" label="Price"
+                             name="Camping_ItemClient"
+                             formatter="currency"
+                             value="{!v.newItem.Price__c}"
+                             placeholder="Price"/>
+                
+            <lightning:input type="date" aura:id="Camping_Itemform" label="Camping Date"
+                             name="Camping_Itemedate"
+                             value="{!v.newItem.Date__c}"/>    
+            
+            <lightning:input type="checkbox" aura:id="Camping_Itemform" label="Packed?"  
+                             name="packed"
+                             checked="{!v.newItem.Packed__c}"/>
+            
+            <lightning:button label="Create Camping_Item" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.clickCreateItem}"/>
+        </form>  
+          
+            <!-- / CREATE NEW EXPENSE FORM -->
+  
+      </fieldset>
+      <!-- / BOXED AREA -->
+
+    </div>
+</aura:component>

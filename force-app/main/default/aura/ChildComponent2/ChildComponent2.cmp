@@ -1,0 +1,4 @@
+<aura:component >
+	<aura:handler name="messageEvent" event="c:mgsEvent" action="{!c.handleBubbling}"/>
+    <c:ChildOfChildComponent2/>
+</aura:component>

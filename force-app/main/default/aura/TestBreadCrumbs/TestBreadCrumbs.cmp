@@ -1,0 +1,59 @@
+<aura:component>
+    <aura:attribute name="options" type="List" default="[
+                                                        { label: 'English', value: 'en' },
+                                                        { label: 'German', value: 'de' },
+                                                        { label: 'Spanish', value: 'es' },
+                                                        { label: 'French', value: 'fr' },
+                                                        { label: 'Italian', value: 'it' },
+                                                        { label: 'Japanese', value: 'ja' }]"/>
+    
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <lightning:button name="notice" label="Show Notice" onclick="{!c.handleShowNotice}"/>
+    <lightning:omniToolkitAPI aura:id="omniToolkit" />
+    <lightning:button label="Accept" onClick="{! c.acceptWork }" />
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:button name="modal" label="Show Modal" onclick="{!c.handleShowModal}"/>
+    
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_6-of-12" style="width:600px;">
+            <lightning:carousel disableAutoRefresh="false" disableAutoScroll="false">
+                <lightning:carouselImage
+                                         src = "{! $Resource.image1 }"
+                                         header = "First Card"
+                                         description = "First card description."
+                                         alternativeText = "First card accessible description."
+                                         href = "https://www.salesforce.com">
+                </lightning:carouselImage>
+                <lightning:carouselImage
+                                         src = "{! $Resource.image2 }"
+                                         header = "Second Card"
+                                         description = "Second card description."
+                                         alternativeText = "Second card accessible description."
+                                         href = "https://www.salesforce.com">
+                </lightning:carouselImage>
+                <lightning:carouselImage
+                                         src = "{! $Resource.image3 }"
+                                         header = "Third Card"
+                                         description = "Third card description."
+                                         alternativeText = "Third card accessible description."
+                                         href = "https://www.salesforce.com">
+                </lightning:carouselImage>
+            </lightning:carousel>
+        </div>
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_4-of-12">
+            <lightning:dualListbox aura:id="dualList"
+                                   name="languages"  
+                                   label= "Select Languages" 
+                                   sourceLabel="Available" 
+                                   selectedLabel="Selected" 
+                                   fieldLevelHelp="This is a dual listbox" 
+                                   options="{!v.options}" 
+                                   onchange="{! c.handleChange }"/>
+        </div>
+    </div>   
+    
+    
+</aura:component>

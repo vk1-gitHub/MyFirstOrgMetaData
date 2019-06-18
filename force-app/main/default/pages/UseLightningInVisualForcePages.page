@@ -1,0 +1,49 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+    
+    <apex:slds />
+    <apex:includeLightning />
+    
+    <html xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+        <head>
+            <apex:includeScript value="/lightning/lightning.out.js"/>
+        </head>
+        <body>
+            <div class="slds-scope">
+                <div id="light" />
+                <div id="light2" />
+            </div>
+        </body>
+        <script>
+        
+        function callSave(component){
+            alert('Calling Save!');
+            //component.find("edit").get("force:recordSave").fire();
+        }
+        
+        function initMethod() {
+            var recordEditComponent;
+            $Lightning.use("c:UseLightningOutApp",function(){
+                $Lightning.createComponent("force:recordEdit",
+                                           {"recordId":"0017F00000VdDod", "aura:id":"edit"},
+                                           "light",
+                                           function(component){                                               
+                                               $Lightning.createComponent("lightning:button",
+                                                                          {"label" : "save", "onclick" : callSave(component)},
+                                                                          "light2",
+                                                                          function(newButton){
+                                                                              //alert(newButton);
+                                                                          });
+                                               
+                                               $A.eventService.addHandler({
+                                                   event: "force:editRecord",
+                                                   handler: function(event) {
+                                                       alert('In Handler');
+                                                   }
+                                               });
+                                           });
+            });
+        }
+        initMethod();
+        </script>
+    </html>
+</apex:page>

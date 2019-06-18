@@ -1,0 +1,115 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    <aura:attribute name="newContact" type="contact"
+                      default="{ 'sobjectType': 'contact',
+                                 'FirstName': '',
+                                 'lastname': '',
+                                 'phone': '',
+                                 'Email__c':'',
+                                 'Reimbursed__c': false }"/>
+    
+    <aura:attribute name="box1" type="Boolean" />
+    
+ <div>
+    <span>
+        <div  class="slds-box slds-theme_shade">
+          <lightning:icon iconName="standard:contact" size="large" alternativeText="Indicates approval"/> 
+          <p><h1>Contact</h1>
+          <h2>Basic Information</h2></p>
+        </div>
+    </span>   
+ </div>
+  <form class="slds-form--stacked"> 
+                
+                <div class="slds-grid slds-wrap">
+                    
+                    <div class="slds-col slds-size_5-of-12 ">
+                    <span><lightning:input aura:id="contactform" label="First Name"
+                                           name="firstname"
+                                           value="{!v.newContact.FirstName}"/>  
+                    </span>
+                    </div>
+                    
+                    <div class="slds-size_2-of-12"></div>
+                    
+                    <div class="slds-col slds-size_5-of-12">
+                    <span><lightning:input aura:id="contactform" label="Last Name"
+                                           name="lastname"
+                                           value="{!v.newContact.lastName}"
+                                           required="true"/>  
+                    </span>
+                    </div>
+                    
+                    <div class="slds-col slds-size_12-of-12"><br/></div>
+                    
+                    <div class="slds-col slds-size_5-of-12">
+                    <span><lightning:input type="tel" aura:id="contactform"
+                                     label="Phone" name="phone"
+                                     value="{!v.newContact.phone}"
+                                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                     placeholder="9988776655"/>    
+                    </span>
+                    </div>
+              
+                    <div class="slds-size_2-of-12"></div>
+                    
+                    <div class="slds-col slds-size_5-of-12">
+                    <span><lightning:input type="email" aura:id="contactform" label="Email"
+                                           name="email"
+                                           value="{!v.newContact.Email__c}"
+                                           placeholder="vk@cloudcertitude.com"/>
+                    </span>
+                    </div>
+                    
+                    <div class="slds-col slds-size_12-of-12"><br/></div>
+                    
+                    <div class="slds-col slds-size_5-of-12">
+                    <span><lightning:input aura:id="inputcheck" type="checkbox"
+                                           label="**********ADDITIONAL DETAIL**********" name="check"   
+                                           checked="false" onchange="{!c.handleChange}"/>
+                    </span>    
+                    </div>
+                    
+                    <div class="slds-size_2-of-12"></div>
+                    
+                    
+                <div class="slds-col slds-size_12-of-12">
+                    <div class="slds-col slds-size_12-of-12"><br/></div>                    
+                    
+                        
+                        
+                    <aura:if isTrue="{!v.box1}">
+                   
+                          <div class="slds-grid slds-wrap">
+                              <div class="slds-col slds-size_5-of-12">
+                              <span><lightning:input aura:id="contactform" label="Mailing City"
+                                      name="mailingcity"
+                                      placeholder="Mailing City"
+                                      value="{!v.newContact.mailingcity}"/> 
+                              </span>
+                              </div>
+                             
+                              <div class="slds-size_2-of-12"><br/></div>
+                         
+                              <div class="slds-col slds-size_5-of-12">
+                              <span><lightning:input aura:id="contactform" label="Mailing State"
+                                                name="mailingstate"
+                                                placeholder="Mailing State"
+                                                value="{!v.newContact.mailingState__c}"/> 
+                              </span>
+                              </div>     
+                        </div>      
+                      
+                      <aura:set attribute="else">
+                          <div class="slds-size_12-of-12"><br/><br/><br/></div>
+                      </aura:set>
+                    </aura:if> 
+                 </div>
+                    <div class="slds-size_12-of-12"><br/></div>  
+                 <lightning:button variant="brand" label="Save" onclick="{!c.clickCreate}" />
+                 
+               </div>        
+      
+            </form>  
+    
+</aura:component>

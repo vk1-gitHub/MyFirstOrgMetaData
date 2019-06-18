@@ -1,0 +1,27 @@
+<apex:page controller="WrapClass">
+
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockButtons >
+         <apex:commandButton value="Click Me" action="{!selectedValue}" RErender="selected"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="Show Record">
+       <apex:pageBlockTable value="{!wraplist}" var="w">
+           <apex:column >
+              <apex:inputCheckbox value="{!w.check}"/>
+           </apex:column>
+           <apex:column value="{!w.acc.id}"/>
+           <apex:column value="{!w.acc.name}"/>
+           <apex:column value="{!w.acc.phone}"/>
+       </apex:pageBlockTable>
+       
+         <apex:pageBlockTable value="{!wraplist2}" var="ws" id="selected">
+            <apex:column value="{!ws.acc.id}"/>
+           <apex:column value="{!ws.acc.name}"/>
+           <apex:column value="{!ws.acc.phone}"/>
+         </apex:pageBlockTable>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+ 
+</apex:page>

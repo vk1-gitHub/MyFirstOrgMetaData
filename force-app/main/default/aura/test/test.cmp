@@ -1,0 +1,101 @@
+<aura:component >
+<!--<ui:inputText aura:id="filter" updateOn="keyup" required="true" keyup="{!c.searchEvents}"/>-->
+    
+  
+
+<!--   <div class="slds-grid slds-wrap">
+  <div class="slds-col slds-size_3-of-12">
+    <span></span>
+  </div>
+  <div class="slds-col slds-size_6-of-12">
+    <span>
+        <lightning:card title="This is Lightning Card" class="slds-theme_alt-inverse">
+            <aura:set attribute="actions">
+                <lightning:button label="New"/>
+            </aura:set>
+            <p class="slds-p-horizontal_small">
+                
+            </p>
+        </lightning:card>
+
+    </span>
+  </div>
+  <div class="slds-col slds-size_3-of-12">
+    <span></span>
+  </div>
+</div> -->
+    
+    <!-- <lightning:card title="Card Header">
+        <aura:set attribute="actions">
+            <lightning:button label="New"/>
+        </aura:set>
+        
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_3-of-12"></div>
+                <div class="slds-col slds-size_6-of-12">
+                   
+                        <div class="slds-theme_alt-inverse" style="height:50px;">
+                            Hello This is First Div
+                        </div>
+                       <div style="height:50px;">
+                            Hello This is Second Div
+                        </div>
+                        <div class="slds-theme_shade" style="height:50px;">
+                            Hello This is Third Div
+                        </div>
+                    
+                </div>
+                <div class="slds-col slds-size_3-of-12"></div>
+            </div>
+        
+        <div>
+        </div>
+    </lightning:card>
+    <aura:attribute name="options" type="List" default="[
+                                                        {'label': 'Yes', 'value': 'option1'},
+                                                        {'label': 'No', 'value': 'option2'}
+                                                        ]"/>
+    <aura:attribute name="value" type="String" default="option1"/>
+    
+        <lightning:radioGroup aura:id="mygroup"
+                          name="radioButtonGroup"
+                          label="Radio Button Group"
+                          options="{! v.options }"
+                          value="{! v.value }"
+                          onchange="{! c.handleChange }"
+                          required="true" 
+                          />
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_8-of-12">
+        <div class="slds-size_2-of-12">
+          <h1 style="text-align:center;"><b>1</b></h1>
+        </div>
+            <div class="slds-size_1-of-12"></div>
+            
+            <div class=" slds-size_2-of-12">
+                <h1 style="text-align:center;"><b>1</b></h1>
+            </div>
+            <div class="slds-size_1-of-12"></div>
+            <div class=" slds-size_2-of-12">
+                <h1 style="text-align:center;"><b>1</b></h1>
+            </div>
+            
+          <div class="slds-col slds-size_2-of-12">
+                <hr/>
+            </div>
+        <div class="slds-col slds-size_1-of-3">
+            <span><b>Goal</b></span>
+        </div>
+ 
+       </div>
+    </div>
+    
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+    <aura:attribute name="progress" type="Integer" default="0"/>
+    <lightning:progressBar value="{!v.progress}"/>-->
+    <force:recordEdit aura:id="edit" recordId="0017F00000VdDod"/>
+    <lightning:button label="Save" onclick="{!c.save}"/>
+
+</aura:component>

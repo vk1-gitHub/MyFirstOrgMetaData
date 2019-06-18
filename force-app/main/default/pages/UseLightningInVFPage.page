@@ -1,0 +1,16 @@
+<apex:page >
+    
+    
+    
+ <apex:includeLightning />
+    <div id="show"/>
+    <script>
+    
+    var attr = {"contactObj": {"AccountId" : "{!$CurrentPage.parameters.AccountId}", "Phone" : "{!$CurrentPage.parameters.phone}", "Email" : "{!$CurrentPage.parameters.email}"}};
+    $Lightning.use("c:UseLightningOutApp2",function(){
+        $Lightning.createComponent("c:RecordEditForm3", attr ,"show",function(cmp){console.log("Page Loaded !")});
+    });
+    </script>   
+    
+   
+</apex:page>

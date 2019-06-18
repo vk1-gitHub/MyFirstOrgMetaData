@@ -1,0 +1,44 @@
+<apex:page Controller="OCR_Controller">
+    <apex:form title="Opportunity Edit">
+        <apex:pageBlock title="Opportunity Edit">
+            <apex:pageBlockSection title="Opportunity Information" columns="2">
+                <apex:inputField value="{!opp.name}"/>
+                <apex:inputField value="{!opp.Amount}"/>
+                <apex:inputField value="{!opp.CloseDate}"/>
+                <apex:inputField value="{!opp.AccountId}"/>
+                <apex:inputField value="{!opp.StageName}"/>
+                <apex:inputField value="{!opp.LeadSource}"/>
+                <apex:inputField value="{!opp.Probability}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Contact Role" >
+                <apex:inputField value="{!ocr.ContactId}" required="false"/>
+                <apex:inputField value="{!ocr.Role}"/>
+                <apex:commandLink action="{!addContactRole}" value="Add Contact Role"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Select Contact Role">
+                <apex:pageBlockTable value="{!ocrList2}" var="oc">
+                    <apex:column value="{!oc.ContactId}"/>
+                    <apex:column value="{!oc.Role}"/>
+                </apex:pageBlockTable>
+                <center><apex:commandButton action="{!addContact}" value="AddContact" id="addCon"/></center>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock >
+            <center>
+                <apex:commandButton action="{!saveOCR}" value="Save" immediate="true" />
+                <apex:commandButton action="{!cancelOCR}" value="Cancel"/>
+            </center>
+            <apex:pageBlockTable value="{!wrapList}" var="w">
+                <apex:column value="{!w.opp2.Name}"/>
+                <apex:column value="{!w.opp2.CloseDate}"/>
+                <apex:column value="{!w.opp2.StageName}"/>
+                <apex:column value="{!w.opp2.AccountId}"/> 
+                <apex:column headerValue="Contacts">
+                    <apex:repeat value="{!w.ocrList}" var="ocrVar">
+                        <apex:outputField value="{!ocrVar.contactId}"/><b>,</b>
+                    </apex:repeat>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

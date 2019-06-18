@@ -1,0 +1,4 @@
+<aura:component >
+	<aura:registerEvent name="messageEvent" type="c:mgsEvent" />
+   <lightning:button variant="brand" label="Submit" onclick="{! c.handleClick }" />
+</aura:component>

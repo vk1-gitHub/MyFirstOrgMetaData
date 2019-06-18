@@ -1,0 +1,45 @@
+<!--<aura:component >
+<div class="slds-grid" style="height:200px;">
+  <div class="slds-col slds-align-top">
+    <span>1</span>
+  </div>
+  <div class="slds-col slds-align-middle">
+    <span>2</span>
+  </div>
+  <div class="slds-col slds-align-bottom">
+    <span>3</span>
+  </div>
+</div> -->
+
+<aura:component >
+    <lightning:button variant="brand" label="Submit" onclick="{! c.handleClick }" />
+    <lightning:button variant="brand" label="Download" iconName="utility:download" iconPosition="left" onclick="{! c.handleClick }" />
+    
+     <lightning:buttonGroup >
+        <lightning:button variant="inverse" label="Refresh" onclick="{!c.handleClick}"/>
+        <lightning:button label="Edit" onclick="{!c.handleClick}"/>
+        <lightning:button label="Save" onclick="{!c.handleClick}"/>
+    </lightning:buttonGroup>
+    <lightning:buttonIcon iconName="utility:settings" variant="bare" alternativeText="Settings" iconClass="dark"/>
+    <lightning:buttonIcon variant="bare" iconName="utility:close" alternativeText="Close"/>
+    
+    
+    <lightning:buttonMenu iconName="utility:settings" alternativeText="Settings" onselect="{! c.handleMenuSelect }">
+    <lightning:menuItem label="Font" value="font" />
+    <lightning:menuItem label="Size" value="size"/>
+    <lightning:menuItem label="Format" value="format" />
+    </lightning:buttonMenu>
+    
+    <lightning:badge label="Label" />
+    <lightning:breadcrumbs >
+        <lightning:breadcrumb label="Parent Account" href="path/to/place/1"/>
+        <lightning:breadcrumb label="Case" href="https://lightningdesignsystem.com/"/>
+    </lightning:breadcrumbs>
+    
+      <aura:attribute name="liked" type="Boolean" default="true"/>
+      <lightning:buttonIconStateful iconName="utility:like" selected="{!v.liked}" alternativeText="Like" onclick="{! c.handleToggle }"/>
+    <lightning:buttonIconStateful iconName="utility:call" />
+    
+      <aura:attribute name="buttonstate" type="Boolean" default="false"/>
+    
+</aura:component>

@@ -1,0 +1,26 @@
+<apex:page controller="PassParam1" docType="html-5.0">
+
+  <apex:form >
+   <apex:pageBlock >
+     <apex:pageblockSection columns="1">
+       <apex:pageBlockSectionItem >
+         <apex:input type="text" value="{!textvalue}" title="Text" />
+         <apex:input type="number" value="{!numberValue}" title="Number" />
+       </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+         <apex:input type="email" value="{!email}" title="Email" />
+         <apex:input type="auto" value="{!Autonum}" title="AutoNumber" />
+       </apex:pageBlockSectionItem>
+       <apex:pageBlockSectionItem >
+         <apex:input type="date" value="{!dateval}" title="Date" />
+         <apex:input type="datetime-local" value="{!dateAndTimeValue}" title="DateAndTimeValue" />
+       </apex:pageBlockSectionItem>
+     </apex:pageblockSection>
+     
+     <apex:pageBlockButtons location="bottom">
+       <apex:commandButton value="Pass Perameter" action="{!PassPrmNow}"/>
+     </apex:pageBlockButtons>
+   </apex:pageBlock>
+  </apex:form>
+
+</apex:page>

@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <lightning:utilityBarAPI aura:id="utilitybar" />
+    <br/>
+    <lightning:button label="Get All Utility Info" onclick="{! c.getAllUtilityInfo }" />
+    <lightning:button label="Get Enclosing Utility ID" onclick="{!c.getEnclosingUtilityId}" />
+    <!--<lightning:button label="Get Utility Info - Minimize" onclick="{! c.getUtilityInfo }" />-->
+    <lightning:button label="Minimize Utility" onclick="{! c.minimizeUtility }" /><br/>
+    <lightning:button label="Open Utility" onclick="{! c.openUtility }" />
+    <lightning:button label="Set Panel Header Icon" onclick="{! c.setPanelHeaderIcon }"/><br/>
+    <lightning:button label="Set Panel Header Label" onclick="{! c.setPanelHeaderLabel }"/><br/>
+    <lightning:button label="Set Panel Height" onclick="{! c.setPanelHeight }" />
+    <lightning:button label="Set Panel Width" onclick="{! c.setPanelWidth }" />
+    <lightning:button label="Set Utility Highlighted" onclick="{! c.setUtilityHighlighted}"/>
+    <lightning:button label="Set Utility Icon" onclick="{! c.setUtilityIcon }" />
+    <lightning:button label="Set Utility Label" onclick="{! c.setUtilityLabel }" />
+    <lightning:button label="Toggle Modal Mode" onclick="{! c.toggleModalMode }" />
+</aura:component>

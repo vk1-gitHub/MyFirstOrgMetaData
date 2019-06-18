@@ -1,0 +1,54 @@
+<aura:component >    
+    <!-- Aura Attribute for store single Contact[standard Object] Instance
+         And Store Index of Particular Instance --> 
+    <aura:attribute name="ContactInstance" type="Contact"/>
+    <aura:attribute name="rowIndex" type="String"/>
+    
+    <!-- Register 2 Lightning Event for handle add or Delete rows on Parent Component  --> 
+    <aura:registerEvent name="DeleteRowEvt" type="c:DeleteRowEvt"/> 
+    <aura:registerEvent name="AddRowEvt" type="c:AddNewRowEvt"/> 
+    
+    
+    <p><b>Language #</b>{!v.rowIndex + 1}</p>
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_5-of-12">
+            <span><lightning:input label="School name, major, minor, degree"/></span>
+        </div>
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_4-of-12">
+            <span><lightning:input label="Rating description (e.g. Advanced)"/></span>
+        </div>
+        <div class="slds-col slds-size_1-of-12"></div>
+        <br/>
+        <div class="slds-col slds-size_12-of-12"><br/></div>
+    </div>
+    
+    
+    <aura:if isTrue="{!v.rowIndex == 0}">
+        
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_4-of-12"></div>
+            <div class="slds-col slds-size_4-of-12">
+                <span>
+                    <lightning:button variant="brand" label="Add New School" iconName="utility:add" iconPosition="left" onclick="{!c.AddNewRow}" />
+                </span>
+            </div>
+            <div class="slds-col slds-size_4-of-12"></div>
+        </div>
+        <aura:set attribute="else">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_4-of-12"></div>
+                <div class="slds-col slds-size_4-of-12">
+                    <span>
+                        <lightning:button variant="brand" label="Delete School" iconName="utility:delete" iconPosition="left" onclick="{!c.removeRow}" />
+                    </span>
+                </div>
+                <div class="slds-col slds-size_4-of-12"></div>
+            </div>
+        </aura:set> 
+        
+    </aura:if>
+    
+</aura:component>

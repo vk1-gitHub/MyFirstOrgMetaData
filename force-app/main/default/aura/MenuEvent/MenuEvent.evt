@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION">
+    <aura:attribute name="name" type="String"/>
+    <aura:attribute name="menuLabel" type="List"/>
+</aura:event>

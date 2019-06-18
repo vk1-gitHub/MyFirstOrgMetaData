@@ -1,0 +1,75 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+  <!--  <aura:attribute name="myVal" type="String" />
+   
+    <aura:attribute name="width" type="String" description=" width of parent region"/>
+    <lightning:flexipageRegionInfo width="{!v.width}"/>
+    <div id="MyCustomComponent" class="{! v.width}">
+        <lightning:input name="test" label="Test"/>
+        
+    </div>
+    <lightning:helptext content="The tooltip displays on the lower left of the icon or above the icon if space is available. It automatically adjusts its position according to the viewport."/>
+    
+    
+    <lightning:inputRichText value="{!v.myVal}" placeholder="Type something interesting"/>
+    <h1 class="slds-m-top_large slds-text-heading_medium">Output</h1>
+    <div aura:id="output" class="slds-box editor slds-text-longform">
+        <lightning:formattedRichText value="{!v.myVal}" />
+    </div>
+    
+    
+    
+    
+    <div style="max-width: 400px;">
+        <lightning:inputAddress
+                                addressLabel="Address"
+                                streetLabel="Street"
+                                cityLabel="City"
+                                countryLabel="Country"
+                                provinceLabel="Province"
+                                postalCodeLabel="PostalCode"
+                                street="121 Spear St."
+                                city="San Francisco"
+                                country="US"
+                                province="CA"
+                                postalCode="94105"
+                                required="true"
+                                fieldLevelHelp="Help Text for inputAddress field"
+                                />
+    </div>
+    
+    <lightning:listView aura:id="listViewAccounts"
+                        objectApiName="Account"
+                        listName="AllAccounts"
+                        rows="5"
+                        showActionBar="true"
+                        enableInlineEdit="true"
+                        showRowLevelActions="true"
+                        />
+    
+    
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <lightning:navigation aura:id="navService"/>
+    <a href="{!v.url}">Link</a>
+    
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <lightning:button name="notice" label="Show Notice" onclick="{!c.handleShowNotice}"/> -->
+    
+    
+    <lightning:picklistPath aura:id="picklistPath" recordId="00Q7F00000CfPT9UAN"
+        variant="non-linear"
+        picklistFieldApiName="LeadSource"
+        onselect="{!c.handleSelect}">
+    </lightning:picklistPath>
+    
+    <lightning:progressIndicator currentStep="2" type="base" hasError="false" variant="base">
+        <lightning:progressStep label="Step 1" value="1"/>
+        <lightning:progressStep label="Step 2" value="2"/>
+        <lightning:progressStep label="Step 3" value="3"/>
+        <lightning:progressStep label="Step 4" value="4"/>
+    </lightning:progressIndicator>
+    
+    <force:canvasApp developerName="MyCanvasApp" namespacePrefix="myNamespace" />
+    
+</aura:component>

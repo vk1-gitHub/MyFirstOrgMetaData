@@ -1,0 +1,33 @@
+<aura:component >
+ 	<aura:attribute name="item" type="Camping_Item__c" default="{name:'Vivek',Price__c:'1200',Quantity__c:'5'}" />
+     <!--
+     <p> Name : {!v.item.name} </p>
+     <p> Price: <lightning:formattedNumber value="{!v.item.Price__c}" style="currency"/></p>
+     <p> Quantity : <lightning:formattedNumber value="{!v.item.Quantity__c}" /></p>
+    -->
+    <lightning:card title="{!v.item.Name}" iconName="action:goal"
+                    class="{!v.item.Packed__c?
+                           'slds-theme--success' : ''}">
+        
+        <p class="slds-text-heading--medium slds-p-horizontal--small">
+           Price: <lightning:formattedNumber value="{!v.item.Price__c}" style="currency"/>
+        </p>
+        
+        <p class="slds-p-horizontal--small">
+            Quantity: {!v.item.Quantity__c}
+        </p>
+        
+        <p>
+            <lightning:input type="checkbox" 
+                             label="Packed"
+                             name="packed"
+                             class="slds-p-around--small"
+                             checked="{!v.newItem.Packed__c}"
+                            /> 
+       
+       </p> 
+        
+    </lightning:card>
+
+    <!--     <lightning:button label="Packed" onclick="{!c.packItem}"/> -->
+</aura:component>

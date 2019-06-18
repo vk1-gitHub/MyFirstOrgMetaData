@@ -1,0 +1,20 @@
+<apex:page Controller="ShowAllAccounts" sidebar="false">
+    
+    <apex:form >
+        
+        
+        <apex:pageBlock title="Show All Account">
+            <apex:commandButton value="Show All Accounts" action="{!showAll}" />
+            <apex:commandButton value="Hide All Accounts" action="{!hideAll}" />
+            <apex:commandButton value="customer_Channel Accounts" action="{!customer_Channel}" />
+            <apex:commandButton value="customer_Direct Accounts" action="{!customer_Direct}" />
+            <apex:pageBlockTable value="{!selectedActs}" var="a">
+                <apex:column value="{!a.name}" />
+                <apex:column value="{!a.type}" />
+                <apex:column value="{!a.phone}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,10 @@
+<aura:component >
+		<div class="slds-grid slds-container_medium "> 
+      	<div class="slds-col slds-theme_success">
+            <c:CardComponent />
+        </div>    
+        <div class="slds-col slds-theme_alt-inverse">
+            <c:campingListItem />
+        </div>
+    </div> 
+</aura:component>

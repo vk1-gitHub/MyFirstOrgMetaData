@@ -1,0 +1,117 @@
+<aura:component controller="ExpensesController" implements="lightning:actionOverride,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+     
+      <aura:attribute name="newExpense" type="Expense__c"
+                      default="{ 'sobjectType': 'Expense__c',
+                                 'Name': '',
+                                 'Amount__c': 0,
+                                 'Client__c': '',
+                                 'Date__c': '',
+                                 'Email__c':'',
+                                 'Reimbursed__c': false }"/>
+    
+      <aura:attribute name="box1" type="Boolean" /> 
+       
+              <!-- CREATE NEW EXPENSE FORM -->
+             <form class="slds-form--stacked"> 
+                
+                <div class="slds-grid slds-wrap">
+                    
+                    <div class="slds-col slds-size_5-of-12 ">
+                    <span><lightning:input aura:id="expenseform1" label="Expense Name"
+                                           name="expensename"
+                                           value="{!v.newExpense.Name}"
+                                           messageWhenValueMissing="You must say foo"
+                                           />  
+                    </span>
+                    </div>
+                    
+                    <div class="slds-size_2-of-12"></div>
+                    
+                    <div class="slds-col slds-size_5-of-12">
+                    <span><lightning:input type="number" aura:id="expenseform" label="Amount"
+                                           name="expenseamount"
+                                           min="1"
+                                           formatter="currency"
+                                           step="1"
+                                           value="{!v.newExpense.Amount__c}"
+                                           messageWhenRangeUnderflow="Enter an amount that's at least $1 "/> 
+                    </span>
+                    </div>
+                    
+                    <div class="slds-col slds-size_12-of-12"><br/></div>
+                    
+                    <div class="slds-col slds-size_5-of-12">
+                    <span><lightning:input aura:id="expenseform" label="Client"
+                                   	      name="expenseclient"
+                                          value="{!v.newExpense.Client__c}"
+                                          placeholder="ABC Co."/> 
+                    </span>
+                    </div>
+              
+                    <div class="slds-size_2-of-12"></div>
+                    
+                    <div class="slds-col slds-size_5-of-12">
+                    <span><lightning:input type="date" aura:id="expenseform" label="Expense Date"
+                                              name="expensedate"
+                                              value="{!v.newExpense.Date__c}"/>
+                    </span>
+                    </div>
+                    
+                    <div class="slds-col slds-size_12-of-12"><br/></div>
+                    
+                    <div class="slds-col slds-size_5-of-12">
+                    <span><lightning:input aura:id="inputcheck" type="checkbox"
+                                           label="Additional Detail" name="check"   
+                                           checked="false" onchange="{!c.handleChange}"/>
+                    </span>    
+                    </div>
+                    
+                    <div class="slds-size_2-of-12"></div>
+                    
+                    <div class="slds-col slds-size_5-of-12">
+                    <span><lightning:input type="email" aura:id="expenseform" label="Email"
+                                           name="email"
+                                           value="{!v.newExpense.Email__c}" />
+                    </span>
+                    </div>
+                    
+                <div class="slds-col slds-size_12-of-12">
+                    <div class="slds-col slds-size_12-of-12"><br/></div>                    
+                    
+                        
+                        
+                    <aura:if isTrue="{!v.box1}">
+                   
+                          <div class="slds-grid slds-wrap">
+                              <div class="slds-col slds-size_5-of-12">
+                              <span><lightning:input aura:id="expenseform" label="Billing City"
+                                      name="billingcity"
+                                      placeholder="Billing City"
+                                      value="{!v.newExpense.BillingCity__c}"/> 
+                              </span>
+                              </div>
+                             
+                              <div class="slds-size_2-of-12"><br/></div>
+                         
+                              <div class="slds-col slds-size_5-of-12">
+                              <span><lightning:input aura:id="expenseform" label="Billing State"
+                                                name="billingstate"
+                                                placeholder="Billing State"
+                                                value="{!v.newExpense.BillingState__c}"/> 
+                              </span>
+                              </div>     
+                        </div>      
+                      
+                      <aura:set attribute="else">
+                          <div class="slds-size_12-of-12"><br/><br/><br/></div>
+                      </aura:set>
+                    </aura:if> 
+                 </div>
+                     
+                 <lightning:button variant="brand" label="Save" onclick="{!c.clickCreate}" />
+                 
+               </div>        
+      
+            </form>
+        <!-- / CREATE NEW EXPENSE FORM -->
+</aura:component>

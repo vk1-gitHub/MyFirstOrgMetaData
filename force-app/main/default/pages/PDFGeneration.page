@@ -1,0 +1,41 @@
+<apex:page standardController="Account" recordSetVar="acc" renderAs="pdf">
+    <html>
+        <head>
+            <style type="text/css">
+                .th{
+                font-size: 1px em;
+                text-align: left;
+                padding-top: 5px;
+                padding-bottom: 4px;
+                padding: 3px 7px 2px 7px;
+                background-color:#A7C942;
+                color:#fff; border 1px solid gray;
+                }
+            </style>
+        </head>
+        <body>
+            <apex:form >
+                <h1>PDF Generation Example</h1>
+                
+                
+                <table style="width:100%" cellspacing="0">
+                    <tbody style="display:table-row-group; vertical-align:middle">
+                        <tr style="dispaly:table-row">
+                            <th style="font-size: 1px em; text-align: left; padding-top: 5px; padding-bottom: 4px; padding: 3px 7px 2px 7px; background-color:#A7C942; color:#fff; border 1px solid gray">Company Name</th>
+                            <th style="font-size: 1px em; text-align: left; padding-top: 5px; padding-bottom: 4px; padding: 3px 7px 2px 7px; background-color:#A7C942; color:#fff; border 1px solid gray">Contact Number</th>
+                            <th style="font-size: 1px em; text-align: left; padding-top: 5px; padding-bottom: 4px; padding: 3px 7px 2px 7px; background-color:#A7C942; color:#fff; border 1px solid gray">Company Type</th>
+                        </tr>
+                        <apex:repeat value="{!acc}" var="a">
+                            <tr>
+                                <td style="font-size:1em; border: 1px solid #98bf21;padding: 3px 7px 2px 7px">{!a.Name}</td>
+                                <td style="font-size:1em; border: 1px solid #98bf21;padding: 3px 7px 2px 7px">{!a.Phone}</td>
+                                <td style="font-size:1em; border: 1px solid #98bf21;padding: 3px 7px 2px 7px">{!a.Type}</td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+                
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

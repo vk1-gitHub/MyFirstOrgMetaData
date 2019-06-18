@@ -1,0 +1,23 @@
+<aura:component >
+    <h1>Registration Form Using Lightning Component</h1>
+    <hr/>
+     <lightning:input type="text" label="Enter Your Name" name="blue"/>
+     <lightning:input type="date" label="DOB" name="date" /> 
+	 <lightning:input type="checkbox" label="Male" name="red" checked="false"/>
+     <lightning:input type="checkbox" label="Female" name="blue" /> 
+     <lightning:input type="datetime-local" label="datetime-local" name="datetime-local" />
+     <lightning:input type="email" label="Email" name="email" /> 
+     <lightning:input type="password" label="Create your Password" name="password" />
+     <lightning:input type="file" label="File" name="file" /> 
+    <lightning:input type="tel" label="Telephone" name="tel" value="343-343-3434" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+    <lightning:input type="search" label="Search" name="search" />
+    <lightning:input type="toggle" label="Toggle value" name="togglevalue" checked="true" />
+    <lightning:input type="url" label="WEbSite" name="url" />
+    <lightning:input type="week" label="Week" name="url"/>
+    <lightning:input name="firstname" label="First Name" minlength="5" 
+    messageWhenBadInput="Your entry must be at least 5 characters." />
+    <lightning:input name="input" aura:id="myinput" label="Enter some text" onblur="{! c.handleBlur }" />
+    <lightning:button aura:id="submit" type="submit" label="Submit" onclick="{! c.onClick }" />
+
+
+</aura:component>

@@ -1,0 +1,49 @@
+<aura:component controller="GetAllObjects">
+    <aura:registerEvent name="getRecordName" type="c:NotesAndAttachmentEvent"/>
+    <aura:handler name="RecordName" event="c:RecordNameEvent"
+                  action="{!c.handleComponentEvent}"/>
+    <aura:handler event="c:LookUpRefreshEvent" action="{!c.handleLookupEvent}"/>
+    <aura:handler event="c:NotesAndAttachmentEvent" action="{!c.handleRadioButtonEvent2}"/>
+    <aura:handler event="c:UpdatedRadioButtonEvent" action="{!c.handleRadioButtonEvent4}"/>
+    
+    <aura:attribute name="result" type="sObject"/>
+    <aura:attribute name="radioButtonLabel" type="String"/>
+    <aura:attribute name="selectedObj" type="String"/>
+    <aura:attribute name="recordName" type="String" default=""/>
+    
+    <aura:attribute name="acc" type="Account"
+                    default="{ 'sobjectType': 'Account',
+                             'name': ''}"/>
+    
+    <div aria-labelledby="Search Contact">
+        
+        
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-12"></div>
+            <div class="slds-col slds-size_4-of-12">
+                <span>
+                    <form class="slds-form--stacked">          
+                        <lightning:input aura:id="Contactform" label="Search By Name Of Notes OR Attachment"
+                                         name="name"
+                                         value="{!v.acc.name}"/> 
+                        
+                        
+                        <lightning:button label="Search Contact" 
+                                          class="slds-m-top--medium"
+                                          variant="brand"
+                                          onclick="{!c.searchResult}"/>
+                    </form>  
+                </span>
+            </div>
+            <div class="slds-col slds-size_2-of-12"></div>
+            <div class="slds-col slds-size_4-of-12">
+                <span>  <c:customLookup IconName="standard:account"/></span>
+            </div>
+            <div class="slds-col slds-size_1-of-12"></div>
+        </div>
+    </div>
+    
+    
+    
+    
+</aura:component>

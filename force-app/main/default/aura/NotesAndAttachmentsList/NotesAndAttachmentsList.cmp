@@ -1,0 +1,66 @@
+<aura:component controller="GetAllObjects">
+    
+    <aura:handler event="c:NotesAndAttachmentEvent" action="{!c.handleRadioButtonEvent3}"/>
+    <aura:handler event="c:UpdatedRadioButtonEvent" action="{!c.handleRadioButtonEvent4}"/>
+    <aura:handler event="c:LookUpRefreshEvent" action="{!c.handleLookupEvent}"/>
+    
+    <aura:attribute name="var" type="boolean" default="true"/>
+    <aura:attribute name="sObj" type="sObject[]"/>
+    <aura:attribute name="obj" type="String" />
+    <aura:attribute name="name" type="String" />
+    <aura:attribute name="radioButton" type="String" default=""/>
+    
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_10-of-12">
+            <span>
+                <span class="slds-badge">All Notes And Attachments</span>
+                <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                    <thead>
+                        <tr class="slds-text-title--caps">
+                            <th scope="col">
+                                <div class="slds-truncate" title="Id">Name</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="First Name">Type</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Email">ParentName</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                         
+                        <!--### display all records of searchResult attribute by aura:iteration ###-->
+                        <aura:iteration items="{!v.sObj}" var="sobjVar">
+                            <tr>              
+                                <aura:if isTrue="{!v.var}">
+                                    <td>
+                                        <div class="slds-truncate">
+                                            <a href="{!'/servlet/servlet.FileDownload?file='+sobjVar.Id}">
+                                                <ui:outputText value="{!sobjVar.Name}" /></a>
+                                        </div>
+                                    </td>
+                                    <aura:set attribute="else">
+                                        <td>
+                                            <div class="slds-truncate"><ui:outputText value="{!sobjVar.Title}" /></div>
+                                        </td>
+                                    </aura:set>
+                                </aura:if>                 
+                                <td>
+                                    <div class="slds-truncate"><ui:outputText value="{!sobjVar.Parent.Type}" /></div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate"><ui:outputText value="{!v.name}" /></div>
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+                <div class="slds-col slds-size_1-of-12"></div>
+            </span>
+        </div>
+    </div>
+</aura:component>

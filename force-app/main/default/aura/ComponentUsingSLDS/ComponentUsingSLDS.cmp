@@ -1,0 +1,37 @@
+<aura:component >
+	<div class="slds-grid  slds-wrap "> 
+      	<div class="slds-col slds-theme_success slds-size_1-of-8">
+            <span>First Col</span>
+        </div>    
+        <div class="slds-col slds-theme_alt-inverse slds-size_1-of-8">
+            <span>Second Col</span>
+        </div>
+        <div class="slds-col slds-theme_warning slds-size_2-of-8">
+            <span>Third Col</span>
+        </div>
+        <div class="slds-col slds-theme_success slds-size_1-of-8">
+            <span>Forth Col</span>
+        </div>    
+        <div class="slds-col slds-theme_alt-inverse slds-size_1-of-8">
+            <span>Fifth Col</span>
+        </div>
+        <div class="slds-col slds-theme_warning slds-size_1-of-8">
+            <span>Sixth Col</span>
+        </div>
+        <div class="slds-col slds-theme_inverse slds-size_1-of-8">
+            <span>Seventh Col</span>
+        </div>
+        <div class="slds-col slds-theme_warning slds-size_2-of-8" >
+            <span>Sixth Col</span>
+        </div>
+        <div class="slds-col slds-theme_warning slds-size_2-of-8">
+            <span>Sixth Col</span>
+        </div>
+        <div class="slds-col slds-theme_warning slds-size_2-of-8">
+            <span>Sixth Col</span>
+        </div>
+        <div class="slds-col slds-theme_warning slds-size_2-of-8">
+            <span>Sixth Col</span>
+        </div>
+    </div> 
+</aura:component>

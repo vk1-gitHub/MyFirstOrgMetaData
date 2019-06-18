@@ -1,0 +1,41 @@
+<apex:page controller="getAccountsContact">
+<apex:form >
+  <apex:pageBlock >
+     <apex:pageblockTable value="{!Account}" var="a">
+     <apex:column >
+       <apex:facet name="header">Action</apex:facet>
+           <apex:commandLink value="Edit " action="{!Edit}" />    
+           <apex:commandLink value=" Delete" Action="{!deleteCon}"/>
+           
+       </apex:column>
+      
+        <apex:column value="{!a.name}"/>
+        <apex:column value="{!a.type}"/>
+        <apex:column value="{!a.phone}"/>
+        <apex:column value="{!a.fax}"/>
+     </apex:pageblockTable>   
+  </apex:pageBlock>
+  
+  
+  <apex:pageBlock title="Related contacts">
+     <apex:pageblockTable value="{!Contact}" var="c">
+     <apex:column >
+    
+        <apex:facet name="header">Action</apex:facet>
+        <apex:commandLink value="Edit " action="{!Edit}">
+          <apex:param value="{!c.id}" name="EditId" assignTo="{!Editid}"/>
+        </apex:commandLink>
+        <apex:commandLink value=" Delete" action="{!deleteCon}">
+         <apex:param value="{!c.id}" name="Idtodel" assignTo="{!delid}"/>
+        </apex:commandLink>
+     </apex:column>
+       
+        <apex:column value="{!c.name}"/>
+        <apex:column value="{!c.title}"/>
+        <apex:column value="{!c.phone}"/>
+        <apex:column value="{!c.fax}"/>
+        <apex:column value="{!c.email}"/>
+     </apex:pageblockTable>   
+  </apex:pageBlock>
+ </apex:form>  
+</apex:page>

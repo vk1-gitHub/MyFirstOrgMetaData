@@ -1,0 +1,14 @@
+<apex:page controller="CustomPaginationController" sidebar="false">
+    <apex:form >
+        <apex:pageBlock >
+             <apex:pageBlockTable value="{!AccRecords}" var="acc">
+                 <apex:column value="{!acc.name}"/>
+                 <apex:column value="{!acc.type}"/>
+             </apex:pageBlockTable>
+            <apex:commandButton value="First" action="{!firstPage}" disabled="{!disablePrev}"/>
+            <apex:commandButton value="Prev" action="{!prev}" disabled="{!disablePrev}"/>
+            <apex:commandButton value="Next" action="{!next}" disabled="{!disableNext}"/>
+            <apex:commandButton value="Last" action="{!lastPage}" disabled="{!disableNext}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
