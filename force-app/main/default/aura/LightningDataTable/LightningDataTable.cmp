@@ -1,0 +1,33 @@
+<aura:component controller="SearchContactController">
+      <c:SearchContact2 />
+      <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+
+      <aura:handler name="addcon1" event="c:ContactEvent"
+       		   	    action="{!c.handleAddContact}"/>
+     
+     	
+<div  class="slds-theme_alt-inverse">
+      <div class="slds-media">
+        <div class="slds-media__body">
+          <span class="slds-badge">All Contacts</span>
+          <span> 
+          <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Rohde Corp - 80,000 Widgets">Contacts Record</h1>
+
+         <div class="slds-text-color_success slds-text-align_right"> 
+            <ui:inputText aura:id="filter" updateOn="keyup" keyup="{!c.filterData}"              placeholder="filterData" value="" />
+         </div>
+
+         </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <aura:attribute name="contact1" type="List"/>
+      <aura:attribute name="records" type="List"/>
+      <aura:attribute name="mycolumns" type="List"/>
+      <lightning:datatable data="{! v.contact1 }" 
+                           columns="{! v.mycolumns }" 
+                           keyField="id"
+                           hideCheckboxColumn="true"/>
+</aura:component>

@@ -1,0 +1,35 @@
+<aura:component >
+    
+<!--	<c:campingHeader />
+    <c:campingList /> -->
+    
+    <!-- PAGE HEADER -->
+    <lightning:layout class="slds-page-header slds-page-header--object-home">
+        <lightning:layoutItem >
+            <lightning:icon iconName="action:goal" alternativeText="My Expenses"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading--label">Camping_Item</h1>
+                <h2 class="slds-text-heading--medium">My Camping_Item</h2>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <!-- / PAGE HEADER -->
+    
+     <!-- CREATE NEW EXPENSE -->
+    
+    <c:campingListForm />
+    
+    <!-- / CREATE NEW EXPENSE -->
+    
+     
+      <aura:attribute name="newCamping_Item" type="Camping_Item__c"
+         default="{ 'sobjectType': 'Camping_Item__c',
+                        'Name': '',
+                        'Amount__c': 0,
+                        'Client__c': '',
+                        'Date__c': '',
+                        'Reimbursed__c': false }"/>
+     <c:campingList items="{!v.Camping_Item}"/>
+</aura:component>

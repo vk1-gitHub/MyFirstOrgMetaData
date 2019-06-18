@@ -1,0 +1,16 @@
+<apex:page controller="CollectionDemo">
+<apex:form >
+  <apex:pageBlock >
+     <apex:pageBlockTable value="{!wraplist}" var="w">
+   
+     <apex:column value="{!w.acc.Parent.id}"/>
+     <apex:column value="{!w.acc.name}"/>
+     <apex:column value="{!w.acc.type}"/>
+     <apex:column value="{!w.acc.phone}"/>
+     <apex:column value="{!w.acc.fax}"/>
+        
+     </apex:pageBlockTable>
+  </apex:pageBlock>
+   
+  </apex:form> 
+</apex:page>

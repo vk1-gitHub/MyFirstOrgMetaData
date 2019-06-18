@@ -1,0 +1,176 @@
+<aura:component controller="PicListValController" implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride,force:lightningQuickActionWithoutHeader"> 
+    
+<aura:attribute name="box1" type="Boolean" />  
+<aura:attribute name="newContact" type="Object"/>
+<aura:attribute name="status" type="String[]"/>    
+<aura:attribute name="simpleNewContact" type="Object"/>
+<aura:attribute name="newContactError" type="String"/>
+<aura:attribute name="objInfo" type="Contact" default="{sobjectType : 'Contact'}" />
+    
+<force:recordData aura:id="contactRecordCreator"
+        layoutType="FULL"
+        mode="EDIT"              
+        targetRecord="{!v.newContact}"
+        targetFields="{!v.simpleNewContact}"
+        targetError="{!v.newContactError}"
+    />
+    
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- Display the new contact form -->
+    <div class="Create Contact">
+
+        
+        
+    <div class="demo-only" style="height: 640px;">
+  <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+      <header class="slds-modal__header">
+       
+        
+       <!-- <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Contact Basic Information</h2> -->
+          <lightning:card iconName="action:new_contact" title="Contact Basic Info">
+          </lightning:card>
+        </header>
+      <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+             <!--  <lightning:card iconName="action:new_contact" title="Contact Basic Info"> -->
+          
+            <div class="slds-p-horizontal--small">
+               <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_5-of-12 ">
+                    <span>
+                        <lightning:input aura:id="contactField" label="First Name" value="{!v.simpleNewContact.FirstName}"/>
+                    </span>
+                    </div>
+                   
+                   <div class="slds-size_2-of-12"><br/></div>
+                   
+                   <div class="slds-col slds-size_5-of-12 ">
+                    <span>
+                    <lightning:input aura:id="contactField" label="Last Name" value="{!v.simpleNewContact.LastName}" required="true"
+                                     messageWhenValueMissing="Last name can't be empty"/>
+                    </span>
+                    </div>
+                   
+                   <div class="slds-size_12-of-12"><br/></div>
+                   
+                   <div class="slds-col slds-size_5-of-12 ">
+                    <span>
+                        <lightning:input aura:id="contactField" type="tel" label="Phone" value="{!v.simpleNewContact.Phone}"/>
+                    </span>
+                    </div>
+                   
+                   <div class="slds-size_2-of-12"><br/></div>
+                   
+                    <div class="slds-col slds-size_5-of-12 ">
+                    <span>
+                        <lightning:input aura:id="contactField" type="email" label="Email" value="{!v.simpleNewContact.Email}"/>
+                    </span>
+                    </div>
+                   
+                   <div class="slds-size_12-of-12"><br/></div>
+                   
+                   
+                   <div class="slds-col slds-size_5-of-12 ">
+                    <span>
+                       <lightning:input aura:id="inputcheck" type="checkbox" label="Additional Detail" name="check"   
+                                 checked="{!v.box1}" />
+                    </span>
+                    </div>
+                   
+                    <div class="slds-size_12-of-12"><br/></div>
+                   
+                      <aura:if isTrue="{!v.box1}">
+                          
+                          
+                      <div class="slds-col slds-size_12-of-12">  
+                          <div class="slds-page-header">
+                             <div class="slds-text-heading_medium slds-text-align_center ">Additional Information</div>
+                          </div>   
+                          
+                       <!--  <div class="slds-page-header">
+                          <div class="slds-media">
+                            <div class="slds-media__figure">
+                              <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                                 <h1>Additional Information</h1>
+                              </span>
+                            </div>
+                          </div>
+                        </div> -->
+                      </div>
+                          
+                          <div class="slds-col slds-size_12-of-12"> <br/> </div>
+                          
+                          
+                              <div class="slds-col slds-size_5-of-12">
+                              <span>
+							   <lightning:input aura:id="contactField" label="Mailing City" placeholder="Mailing City"
+                                               value="{!v.simpleNewContact.MailingCity}"/> 
+                              </span>
+                              </div>
+                             
+                              <div class="slds-size_2-of-12"><br/></div>
+                         
+                              <div class="slds-col slds-size_5-of-12">
+                              <span>
+							      <lightning:input aura:id="contactField" label="Mailing State" placeholder="Mailing State"
+                                               value="{!v.simpleNewContact.MailingState}"/> 
+                              </span>
+                              </div>   
+                              
+                              <div class="slds-size_12-of-12"><br/></div>
+                              
+                              <div class="slds-col slds-size_5-of-12">
+                              <span>               
+                               <lightning:select name="selectItem" aura:id="selectedval" label="Marital status" value="{!v.simpleNewContact.Status__c}">
+                                             <option value="">Select Status</option>
+                                             <aura:iteration items="{!v.status}" var="s">
+                                                 <option value="{!s.value}">{!s}</option>
+                                             </aura:iteration>
+                               </lightning:select>
+                                  
+                              </span>
+                              </div>
+                             
+                             <div class="slds-size_2-of-12"><br/></div>
+                         
+                              <div class="slds-col slds-size_5-of-12">
+                              <span>
+							      <lightning:input type="date" aura:id="contactField" label="DOB" placeholder="DOB"
+                                               value="{!v.simpleNewContact.DOB__c}"/> 
+                              </span>
+                              </div> 
+                          
+                          
+                      <aura:set attribute="else">
+                          <h1></h1>
+                      </aura:set>
+                 </aura:if>
+                
+                
+                <div class="slds-size_12-of-12"><br/></div>
+                
+                <lightning:button label="Save Contact" variant="brand" onclick="{!c.handleSaveContact}"/>
+                <lightning:button label="Cancle" variant="brand" onclick="{!c.handleCancel}"/>   
+            </div>
+           </div>
+      <!--  </lightning:card> -->     
+      </div>
+          <footer class="slds-modal__footer">
+        <button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">Cancel</button>
+      </footer>
+    </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open"></div>
+</div>   
+        
+        
+        
+        
+        
+    </div>
+    <!-- Display Lightning Data Service errors -->
+    <aura:if isTrue="{!not(empty(v.newContactError))}">
+        <div class="recordError">
+            {!v.recordError}</div>
+    </aura:if>
+</aura:component>

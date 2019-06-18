@@ -1,0 +1,49 @@
+<apex:page controller="FetchAccountAndContactRecord">
+<apex:form >
+  <apex:pageBlock >
+  
+   
+
+  
+ <apex:pageBlockSection title="Wrapping Account and Contact">
+   
+  <apex:repeat value="{!listwrap}" var="w">
+  <apex:inputCheckbox value="{!w.check}"/>
+     {!w.acc.name}--
+     {!w.acc.type}--
+     {!w.acc.industry}--
+     {!w.acc.phone}--
+     {!w.acc.fax}--
+     {!w.con.name}--
+     {!w.con.title}--
+     {!w.con.phone}--
+     {!w.con.email}--
+     {!w.con.fax}--
+  </apex:repeat>
+  
+ </apex:pageBlockSection>
+ 
+ 
+ 
+ <apex:pageBlockButtons >
+      <apex:commandButton value="Click Me" action="{!selectedValue}"/>
+   </apex:pageBlockButtons>
+   <apex:pageBlockSection title="Selcted Records">
+   <apex:repeat value="{!listwrap2}" var="ws">
+  <apex:inputCheckbox value="{!ws.check}"/>
+     {!ws.acc.name}--
+     {!ws.acc.type}--
+     {!ws.acc.industry}--
+     {!ws.acc.phone}--
+     {!ws.acc.fax}--
+     {!ws.con.name}--
+     {!ws.con.title}--
+     {!ws.con.phone}--
+     {!ws.con.email}--
+     {!ws.con.fax}--
+  </apex:repeat>
+ </apex:pageBlockSection>
+ </apex:pageBlock>
+ </apex:form>
+
+</apex:page>

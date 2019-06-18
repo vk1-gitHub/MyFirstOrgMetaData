@@ -1,0 +1,10 @@
+<apex:page controller="ActionPollerController">
+ <apex:form >
+ <apex:pageBlock title="ActionPollerDemo" id="refer">
+ 
+  <p>Page Refreshed After 5 Second : {!count} times</p>
+ 
+ </apex:pageBlock>
+ <apex:actionPoller action="{!Increment}" interval="5" reRender="refer"/>
+ </apex:form>
+</apex:page>

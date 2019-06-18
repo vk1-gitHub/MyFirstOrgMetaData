@@ -1,0 +1,232 @@
+<aura:component controller="GetFieldSetController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="contactList" type="Object[]"/>
+    <aura:attribute name="intVar" type="Integer" default='1'/>
+    <aura:attribute name="ExpArr" type="Object[]" default="{}"/>
+    <aura:attribute name="EducationList" type="Object[]" default="{}"/>
+    
+    <aura:attribute name="myMap" type="Map" default="{}"/>
+    <aura:attribute name="PInfoSummaryMap" type="Map" default="{}"/>
+    <aura:attribute name="expMap" type="Map" default="{}"/>
+    <aura:attribute name="expMap1" type="Map" default="{}"/>
+    <aura:attribute name="expList" type="List"/>
+    <aura:attribute name="expList2" type="List[]"/>
+    <aura:attribute name="expAddRowMap" type="Map" default="{}"/>
+    <aura:attribute name="educationMap" type="Map" default="{}"/>
+    <aura:attribute name="skillMap" type="Map" default="{}"/>
+    <aura:attribute name="languageMap" type="Map" default="{}"/>
+    
+    <aura:attribute name="conObj2" type="Contact"  default="{'sObjectType':'Contact','FirstName':'','LastName':'','Email':'','Phone':'','DOB__c':'','Address__c':'','Summary__c':'','Experience__c':''}"/>
+    <aura:attribute name="conObj" type="Contact"  default="{'sObjectType':'Contact',
+                                                           'FirstName':'','LastName':'',
+                                                           'Email':'','Phone':'','DOB__c':'',
+                                                           'Address__c':'','Summary__c':''}"/>
+    <aura:attribute name="menuLabelList" type="List" default="{}"/>
+    
+    <aura:handler event="c:MenuEvent" action="{!c.handleMenuEvent}"/>
+    <aura:attribute name="Result" type="List"/>
+    <aura:attribute name="heading" type="String" default="Personal_Information"/>
+    
+    <aura:attribute name="rowIndex" type="Integer" default="0"/>
+    <aura:attribute name="EducationRowIndex" type="Integer" default="1"/>    
+    
+    <aura:attribute name="ExperienceVar" type="boolean" default="false"/>
+    <aura:attribute name="Experience" type="boolean" /> 
+    <aura:attribute name="valueHandler" type="boolean" default="false"/>
+    <aura:attribute name="Education" type="boolean" />           
+    <aura:attribute name="Skill" type="boolean" />           
+    <aura:attribute name="Language" type="boolean" />   
+    
+    <div class="slds-page-header slds-theme_offline slds-align_absolute-center">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed"></span>
+            </div>
+            <div class="slds-media__body">
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Resume Maker">
+                    {!v.heading}</h1>
+            </div>
+        </div>
+    </div>   
+    
+    <div class="slds-grid slds-wrap" style="border: 1px solid black">   
+        <div class="slds-col slds-size_12-of-12"><br/></div>
+        <aura:iteration items="{!v.Result}" var="fields">
+            <div class="slds-col slds-size_1-of-2 slds-col--padded">
+                <span><lightning:input aura:id="pInfoForm"
+                                       name="{!fields.fAPIName}"
+                                       label="{!fields.flabel}"
+                                       required="{!fields.freq}"
+                                       type="{!fields.ftype}"
+                                       value=""/> 
+                </span>
+            </div>
+        </aura:iteration>
+        <div class="slds-col slds-size_12-of-12"><br/></div>
+    </div>
+    
+    <aura:if isTrue="{!v.ExperienceVar}">
+        
+        <div class="slds-grid slds-wrap" style="border: 1px solid black">   
+            <div class="slds-col slds-size_12-of-12"></div><br/>  
+            <aura:iteration items="{!v.contactList}" var="field" indexVar="index">
+                <div class="slds-col slds-size_-of-2"><br/></div>
+                <div style="width:1030px;margin-left:10px;margin-top:10px;margin-bottom:10px;" class=" slds-box slds-col slds-size_2-of-2 slds-col--padded">
+                    <span>Add New Company Experience : </span><b>{!index}</b>
+                </div>
+                <aura:iteration items="{!v.Result}" var="fields">
+                    <div class="slds-col slds-size_1-of-2 slds-col--padded">
+                        <span><lightning:input aura:id="pInfoForm1"
+                                               name="{!fields.fAPIName}"
+                                               label="{!fields.flabel}"
+                                               required="{!fields.freq}"
+                                               type="{!fields.ftype}"
+                                               value=""/> 
+                        </span> 
+                    </div>
+                </aura:iteration>
+                <div class="slds-col slds-size_-of-2"><br/><br/></div>
+            </aura:iteration>
+            <div class="slds-col slds-size_12-of-12"><br/></div>
+        </div>
+        <aura:set attribute="else">
+            <p></p>
+        </aura:set>
+    </aura:if>
+    <!--Button Section  -->
+    
+    
+    <aura:if isTrue="{!v.Experience}">
+        <aura:if isTrue="{!v.rowIndex == 0}">
+            
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_6-of-6">
+                    <span><br/></span>
+                </div>
+                <div class="slds-col slds-size_2-of-6">
+                    <span></span>
+                </div>
+                
+                <div class="slds-col slds-size_2-of-6">
+                    <span><lightning:button variant="brand" label="Add Experience" iconName="utility:add" iconPosition="left" onclick="{! c.addNewRow}" /></span>
+                    
+                </div>
+                
+            </div>
+            <aura:set attribute="else">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_12-of-12">
+                        <span><br/></span>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12">
+                        <span></span>
+                    </div>
+                    <div class="slds-col slds-size_2-of-12">
+                        <span><lightning:button variant="brand" label="Add Experience" iconName="utility:add" iconPosition="left" onclick="{!c.addNewRow}"/></span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-12"></div> 
+                    <div class="slds-col slds-size_2-of-12">
+                        <span><lightning:button variant="destructive" label="Delete Experience" iconName="utility:delete" iconPosition="left" onclick="{!c.removeRow}"/></span>
+                    </div>
+                </div>
+            </aura:set> 
+        </aura:if>
+        <aura:set attribute="else">
+            <p></p>
+        </aura:set>
+    </aura:if>
+    
+    
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_2-of-12"></div>
+        <div class="slds-col slds-size_1-of-12">
+            <span><aura:if isTrue="{!v.heading == 'Personal_Information'}">
+                <p><lightning:button label="Back" 
+                                     class="slds-m-top--medium"
+                                     variant="brand"
+                                     disabled="true"                   
+                                     onclick="{!c.handleBack}"/> </p>
+                <aura:set attribute="else">
+                    <lightning:button label="Back" 
+                                      class="slds-m-top--medium"
+                                      variant="brand"                  
+                                      onclick="{!c.handleBack}"/> 
+                </aura:set>
+                </aura:if>
+                
+            </span>
+        </div>
+        <div class="slds-col slds-size_3-of-12">
+            <span>
+                <aura:if isTrue="{!v.heading == 'Language'}">
+                    
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-3">
+                            <span>
+                                <lightning:button label="Next" 
+                                                  class="slds-m-top--medium"
+                                                  variant="brand"
+                                                  disabled="true"        
+                                                  onclick="{!c.handleNext}"/>
+                            </span>
+                        </div>
+                        <div class="slds-col slds-size_2-of-3">
+                            <span><lightning:button label="Save &amp; Next" 
+                                                    class="slds-m-top--medium"
+                                                    variant="brand"
+                                                    disabled="true"        
+                                                    onclick="{!c.handleSaveAndNext}"/>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <aura:set attribute="else">
+                        
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-3">
+                                <span><lightning:button label="Next" 
+                                                        class="slds-m-top--medium"
+                                                        variant="brand"
+                                                        onclick="{!c.handleNext}"/>
+                                </span>
+                            </div>
+                            <div class="slds-col slds-size_2-of-3">
+                                <span><lightning:button label="Save &amp; Next" 
+                                                        class="slds-m-top--medium"
+                                                        variant="brand"       
+                                                        onclick="{!c.handleSaveAndNext}"/>
+                                </span>
+                            </div>
+                        </div>
+                    </aura:set>
+                </aura:if>
+                
+            </span>
+        </div>
+        <div class="slds-col slds-size_1-of-12">
+            <span>
+                <lightning:button label="Save" 
+                                  class="slds-m-top--medium"
+                                  variant="brand"
+                                  onclick="{!c.handleSave}"/>
+            </span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+            <span>
+                <lightning:button label="Save &amp; Exit" 
+                                  class="slds-m-top--medium"
+                                  variant="brand"
+                                  onclick="{!c.handleSave}"/>
+            </span>
+        </div>
+        <div class="slds-col slds-size_1-of-12">
+            <span><lightning:button label="Cancel" 
+                                    class="slds-m-top--medium"
+                                    variant="brand"
+                                    onclick="{!c.handleCancle}"/>
+            </span>
+        </div>
+    </div>
+    <!--Button Section Close -->
+</aura:component>

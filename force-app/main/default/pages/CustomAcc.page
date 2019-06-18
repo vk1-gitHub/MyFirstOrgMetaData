@@ -1,0 +1,66 @@
+<apex:page Controller="ContactController" showChat="false" sidebar="false" showHeader="false">
+  <style>
+  #load{
+        background-color:#fff;
+        width:1200px;
+        height:600px;
+        background-image: url("http://www.gannett-cdn.com/experiments/usatoday/2014/11/airport-interactive/img/loader-white.gif");
+        background-position: center center; 
+        background-repeat: no-repeat;
+        background-size: 300px 200px;
+       }
+  </style>
+  
+  <script>
+  
+    function comp(){
+      alert('Updated');
+    }
+  
+  </script>
+ 
+  <apex:form >
+        <apex:actionStatus id="load1" style="align:center;" >
+               <apex:facet name="start" >
+                    <div id="load" ></div>                    
+               </apex:facet>
+        </apex:actionStatus> 
+        
+      <apex:pageBlock title="Account" id="abcd">
+   
+          <apex:pageBlockButtons location="bottom">
+              <apex:commandButton value="Update Department Member" action="{!getupdateDept}" reRender="cpb" status="load1"  oncomplete="comp()"/> 
+                   
+          </apex:pageBlockButtons>
+          
+       <apex:pageBlockTable value="{!Acc}" var="a">
+           <apex:column value="{!a.name}"/>
+           <apex:column value="{!a.type}"/>
+           <apex:column value="{!a.phone}"/>
+           <apex:column value="{!a.fax}"/>
+        </apex:pageBlockTable>
+       
+    </apex:pageBlock>
+   
+   <apex:pageBlock title="RelatedContact" id="cpb">
+   
+    <apex:pageBlockButtons >
+              <apex:commandButton value="First Page" action="{!first}" disabled="{!DisablePrevious}"/>
+              <apex:commandButton value="Previous Page" action="{!previous}" disabled="{!DisablePrevious}"/>
+              <apex:commandButton value="Next Page" action="{!next}" disabled="{!DisableNext}"/>  
+              <apex:commandButton value="Last Page" action="{!last}" disabled="{!DisableLast}"/>   
+    </apex:pageBlockButtons>
+   
+     <apex:pageBlockTable value="{!Con1}" var="c">
+       <apex:column value="{!c.name}"/>
+       <apex:column value="{!c.title}"/>
+       <apex:column value="{!c.Department__c}"/>
+       <apex:column value="{!c.HR__c}"/>
+       <apex:column value="{!c.IT__c}"/>
+       </apex:pageBlockTable>   
+       
+   </apex:pageBlock> 
+      
+  </apex:form>
+  
+</apex:page>

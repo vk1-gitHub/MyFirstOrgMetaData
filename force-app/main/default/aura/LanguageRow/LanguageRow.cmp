@@ -1,0 +1,47 @@
+<aura:component controller="addDeleteController" Implements="flexipage:availableForRecordHome,force:hasRecordId">
+  
+        <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+        <aura:handler name="DeleteRowEvt" event="c:DeleteRowEvt" action="{!c.removeDeletedRow}"/>
+        <aura:handler name="AddRowEvt" event="c:AddNewRowEvt" action="{!c.addNewRow}"/>
+         
+        <aura:attribute name="contactList" type="Contact[]"/>
+    
+    <div class="slds-page-header slds-theme_offline slds-align_absolute-center">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                </span>
+            </div>
+            <div class="slds-media__body">
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Resume Maker">
+                    <lightning:icon iconName="utility:description" size="small" alternativeText="Indicates approval"/>
+                    Language</h1>
+            </div>
+        </div>
+    </div>
+       
+        
+        <!--Header Part-->        
+        <div class="slds-page-header">
+            <h1 class="slds-page-header__title">Add Language</h1>
+        <!--    <p class="slds-text-body_small slds-line-height_reset">Of Your company in which you have worked.</p>-->
+        </div>
+        
+        <aura:iteration items="{!v.contactList}" var="item" indexVar="index">
+            <c:SKillRowItem ContactInstance="{!item}" rowIndex="{!index}" />
+        </aura:iteration>
+        
+        <br/>
+       
+        <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_4-of-12"></div>
+                <div class="slds-col slds-size_4-of-12">
+                    <span>
+                         <button class="slds-button slds-button_brand" onclick="{!c.Save}">Save</button>
+                    </span>
+                </div>
+                <div class="slds-col slds-size_4-of-12"></div>
+        </div>
+    
+       
+</aura:component>

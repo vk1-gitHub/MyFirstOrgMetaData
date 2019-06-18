@@ -1,0 +1,6 @@
+<aura:component >
+	<aura:handler name="messageEvent" event="c:mgsEvent" action="{!c.handleBubbling}"/>
+    <c:ChildComponent1/>
+    <c:ChildComponent2/>
+    <!--<lightning:button variant="brand" label="Submit" onclick="{! c.handleClick }" />-->
+</aura:component>

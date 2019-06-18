@@ -1,0 +1,29 @@
+<apex:page Controller="DynamicInsert">
+<apex:form >
+    <apex:pageBlock >
+     <apex:pageBlockSection >
+        <apex:inputField value="{!con.firstName}" />
+     </apex:pageBlockSection> 
+      
+      <apex:pageBlockSection > 
+        <apex:inputField value="{!con.lastName}" />
+        
+     </apex:pageBlockSection>
+     <apex:pageBlockSection >  
+        <apex:inputField value="{!con.email}" />
+      </apex:pageBlockSection>
+      
+     <apex:pageBlockSection >  
+        <apex:inputField value="{!con.phone}" />
+     </apex:pageBlockSection>
+     
+     <apex:pageBlockSection >   
+        <apex:inputField value="{!con.fax}" />
+     </apex:pageBlockSection>
+     <apex:commandButton value="Insert" action="{!insertcon}"/>
+     <apex:commandButton value="Delete" action="{!deletecon}"/>
+   
+    
+    </apex:pageBlock>
+ </apex:form>
+</apex:page>

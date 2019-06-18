@@ -1,0 +1,16 @@
+<apex:page controller="ActionFunctionDemo">
+
+  <apex:form >
+   
+    <apex:outputPanel id="counter">
+     
+      <apex:outputText value="Click Me : {!Count}"/>
+      <apex:actionSupport event="onclick" action="{!Increment}" status="counterstatus" reRender="counter"/>
+    </apex:outputPanel>
+    
+    <apex:actionStatus id="counterstatus" startText="  Incrementing...."></apex:actionStatus>
+  
+  </apex:form>
+
+
+</apex:page>

@@ -1,0 +1,24 @@
+<apex:page controller="WrapperDemo">
+
+<apex:form >
+  <apex:pageBlock >
+   
+     <apex:pageblockButtons >
+       <apex:commandButton value="delete" action="{!deleteData}"  reRender="refresh"/>
+     </apex:pageblockButtons>
+  
+    <apex:pageBlockSection title="Records">
+       <apex:pageBlockTable value="{!wraplist}" var="w" id="refresh" >
+          <apex:column >
+           <apex:facet name="header"><apex:inputCheckbox /></apex:facet>
+            <apex:inputCheckbox value="{!w.check}"/>
+          </apex:column>
+          <apex:column value="{!w.con.id}"/>
+          <apex:column value="{!w.con.lastname}"/>
+           <apex:column value="{!w.con.title}"/>
+            <apex:column value="{!w.con.phone}"/>
+       </apex:pageBlockTable>
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+ </apex:form>
+</apex:page>

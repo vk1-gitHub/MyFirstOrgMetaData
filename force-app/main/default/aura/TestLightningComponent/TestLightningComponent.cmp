@@ -1,0 +1,41 @@
+<aura:component >
+    <h1>Testing Aura Component</h1>
+    <br/>
+	<aura:attribute name="num" type="integer" default="10"/>
+    <ui:inputNumber label="Enter age : " aura:id="num" value="{!v.num}"/>
+    
+     <lightning:input type="checkbox" label="Red" name="red" checked="true"/>
+     <lightning:input type="checkbox" label="Blue" name="blue" /> 
+     <lightning:input type="date" label="Date" name="date" /> 
+     <lightning:input type="datetime-local" label="datetime-local" name="datetime-local" />
+     <lightning:input type="email" label="Email" name="email" /> 
+     <lightning:input type="file" label="File" name="file" /> 
+    
+    <hr/><h1>Aura Iteration</h1>
+    <aura:iteration items="1,2,3,4,5" var="item">
+         
+        <meter value="{!item / 6}"/><br/>
+    </aura:iteration> 
+    
+    <ui:button label="Find" class="slds-button_destructive"/>
+    
+    <hr/>
+    <h1>Employee Of Cloud Certirtude</h1>
+    <aura:attribute name="favoriteColors" type="String[]" default="Vivek,Deepak,Jai,Rohit,Ankita,Amita"/>
+    <aura:iteration items="{!v.favoriteColors}" var="s">
+        {!s}<br/>
+    </aura:iteration>
+    <br/>
+    <lightning:button onclick="{!c.getString}" label="Update" class="slds-button_success"/>
+    
+    
+    <hr/>
+<aura:attribute name="numbers" type="List"/>
+<lightning:button onclick="{!c.getNumbers}" label="Display Numbers" class="slds-button_success"/>
+<aura:iteration var="num" items="{!v.numbers}">
+    <br/>{!num.value}
+</aura:iteration>
+    
+    <lightning:input type="checkbox" label="Red" name="red" checked="true"/>
+    <lightning:input type="checkbox" label="Blue" name="blue" /> 
+</aura:component>

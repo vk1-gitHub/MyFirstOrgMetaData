@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="completeNum" type="integer" default=""/>
+    <aura:attribute name="percent" type="integer" default=""/>
+	<lightning:input type="number" label="Give a number to Calculate" required="true" value="{!v.completeNum}" />
+    <lightning:input type="number" label="Percentage" required="true" value="{!v.percent}" />
+    {!v.percent}<span> Percentage  Of </span>{!v.completeNum} <span> is </span> {!(v.completeNum * v.percent)/100}
+</aura:component>

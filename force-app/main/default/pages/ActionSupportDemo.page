@@ -1,0 +1,31 @@
+<apex:page standardController="Account">
+
+  <apex:pageBlock title="Hello {!$User.FirstName}">
+  </apex:pageBlock>
+  
+  <apex:pageBlock title="Contact">
+    <apex:form >
+      <apex:dataTable value="{!account.Contacts}" var="contact" cellpadding="4" border="1">
+          <apeX:column >
+             <apex:outputpanel >
+               <apex:actionSupport event="onmouseover" reRender="detail">
+                  <apex:param name="cid" value="{!contact.id}"/>
+               </apex:actionSupport>
+               {!contact.Name}
+             </apex:outputpanel>
+          </apex:column>
+      </apex:dataTable>
+    </apex:form> 
+  </apex:pageBlock>
+  
+  <apex:pageBlock >
+    <apex:outputPanel id="detail">
+       <apex:actionStatus startText="Requesting.....">
+       <apex:facet name="stop">          
+          <apex:detail subject="{!$CurrentPage.parameters.cid}" relatedList="false" title="false"/>
+        </apex:facet>
+       </apex:actionStatus>
+    </apex:outputPanel>
+  </apex:pageBlock>
+
+</apex:page>

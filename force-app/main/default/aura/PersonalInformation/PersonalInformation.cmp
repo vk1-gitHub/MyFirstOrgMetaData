@@ -1,0 +1,134 @@
+<aura:component controller="GetFieldSetController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+<aura:attribute name="Result" type="List"/>  
+<aura:attribute name="field" type="String" />
+    
+    
+    <div class="slds-page-header slds-theme_offline slds-align_absolute-center">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                </span>
+            </div>
+            <div class="slds-media__body">
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Resume Maker">
+                    <lightning:icon iconName="utility:user" size="small" alternativeText="Utility user"/>
+                    Personal Information</h1>
+            </div>
+        </div>
+    </div>
+    
+    <lightning:recordEditForm aura:id="recordViewForm" 
+	                                      objectApiName="Contact">
+     
+    <div class="slds-grid slds-wrap">   
+        <div class="slds-col slds-size_12-of-12"></div><br/>
+                <aura:iteration items="{!v.Result}" var="fields">
+                 <div class="slds-col slds-size_1-of-2 slds-col--padded">
+                   <span> 
+                      <lightning:input aura:id="pInfoForm"
+                                     name="{!fields.fAPIName}"
+                                     label="{!fields.flabel}"
+                                     required="{!fields.freq}"
+                                     type="{!fields.ftype}"
+                                     value=""/> 
+                       
+                     <!--   <lightning:inputField fieldName="{!fields.fAPIName}" />-->
+                       
+                    </span>
+                  </div>
+                </aura:iteration>  
+            
+                
+        <div class="slds-col slds-size_1-of-12"></div>
+      
+           <div class="slds-col slds-size_1-of-12"></div>
+                     <div class="slds-col slds-size_1-of-12">
+                         <span><lightning:button label="Back" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              disabled="true"                   
+                              onclick="{!c.handleBack}"/> 
+                         </span>
+                     </div>
+                     
+                      <div class="slds-col slds-size_1-of-12">
+                         <span><lightning:button label="Next" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.handleNext}"/>
+                         </span>
+                     </div>
+        
+                      <div class="slds-col slds-size_1-of-12">
+                         <span><lightning:button label="Save" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.handleSave}"/>
+                         </span>
+                      </div>
+                     
+                      <div class="slds-col slds-size_2-of-12">
+                         <span><lightning:button label="Save &amp; Next" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.clickCreateItem}"/>
+                         </span>
+                     </div>
+                     
+                      
+                      <div class="slds-col slds-size_1-of-12">
+                         <span><lightning:button label="Cancel" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.clickCreateItem}"/>
+                         </span>
+                     </div>
+                 
+                     <div class="slds-col slds-size_1-of-12"></div>
+           </div>
+    
+    </lightning:recordEditForm>
+    
+    
+    
+ <!--   <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_4-of-12">
+            <span>{!v.body[0]}</span>
+        </div>
+        <div class="slds-col slds-size_2-of-12"></div>
+        <div class="slds-col slds-size_4-of-12">
+            <span>{!v.body[1]}</span>
+        </div>
+        <div class="slds-col slds-size_1-of-12"></div>
+        
+        <div class="slds-col slds-size_12-of-12"><br/></div>
+        
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_4-of-12">
+            <span>{!v.body[2]}</span>
+        </div>
+        <div class="slds-col slds-size_2-of-12"></div>
+        <div class="slds-col slds-size_4-of-12">
+            <span>{!v.body[3]}</span>
+        </div>
+        <div class="slds-col slds-size_1-of-12"></div>
+        
+        <div class="slds-col slds-size_12-of-12"><br/></div>
+        
+        <div class="slds-col slds-size_1-of-12"></div>
+        <div class="slds-col slds-size_4-of-12">
+            <span>{!v.body[4]}</span>
+        </div>
+        <div class="slds-col slds-size_2-of-12"></div>
+        <div class="slds-col slds-size_4-of-12">
+            <span>{!v.body[5]}</span>
+        </div>
+        <div class="slds-col slds-size_1-of-12"></div>
+    </div>  -->
+
+
+    
+    
+</aura:component>

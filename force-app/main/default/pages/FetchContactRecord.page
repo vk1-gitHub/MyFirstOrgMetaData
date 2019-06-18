@@ -1,0 +1,75 @@
+<apex:page standardController="Contact" recordSetVar="it">
+
+  <style>
+    .blue{
+             background:#334CFF;
+             height:30px;
+             color:#0AF1F8;
+             font-size:200%;
+            }
+    .red{
+             background:#F80A23;
+             height:30px;
+             color:#ffffff;
+             font-size:200%;
+             width:950px;
+             border-color:red;
+            }
+     .bground{
+             background:#EEA2B9;
+             color:#0AF1F8;
+            
+            }       
+      .bground2{
+             background:#9182ED;
+             color:#0AF1F8;
+             text-align:center;
+            }       
+              
+  
+  </style>
+
+ <apex:pageBlock title="Contact Record via PageTable">
+    <apex:pageBlockTable value="{!it}" var="c" captionClass="blue" rowClasses="bground">
+    <apex:facet name="caption"><h1><b><i>Displaying Contact Record via PageTable</i></b></h1></apex:facet>
+        <apex:column value="{!c.name}"/>
+        <apex:column value="{!c.title}"/>
+        <apex:column value="{!c.phone}"/>
+        <apex:column value="{!c.email}"/>
+        <apex:column value="{!c.fax}"/> 
+    </apex:pageBlockTable>
+  </apex:pageBlock>
+  
+  <apex:pageBlock title="Contact Record via DataTable">
+    <apex:dataTable value="{!it}" var="c" captionClass="red" rowClasses="bground2" rules="all" frame="hsides" border="2" cellpadding="10">
+    <apex:facet name="caption"><h1><b><i>Displaying Contact Record via DataTable</i></b></h1></apex:facet>
+        <apex:column value="{!c.name}"/>
+        <apex:column value="{!c.title}"/>
+        <apex:column value="{!c.phone}"/>
+        <apex:column value="{!c.email}"/>
+        <apex:column value="{!c.fax}"/> 
+    </apex:dataTable>       
+ </apex:pageBlock>
+ 
+  <apex:pageBlock title="Contact Record via DataList">
+    <apex:dataList value="{!it}" var="c">
+        {!c.name}
+        {!c.title}
+        {!c.phone}
+        {!c.email}
+        {!c.fax}
+    </apex:dataList>       
+ </apex:pageBlock>
+ 
+   <apex:pageBlock title="Contact Record via ApexRepeate">
+    <apex:repeat value="{!it}" var="c">
+        {!c.name} --
+        {!c.title}  --
+        {!c.phone} --
+        {!c.email} --
+        {!c.fax}  --
+    </apex:repeat>       
+ </apex:pageBlock>
+
+
+</apex:page>

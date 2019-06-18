@@ -1,0 +1,84 @@
+<apex:page showHeader="false" sidebar="false">
+  <style>
+    
+     .left{
+            margin-top:50px;
+            width:40%;
+            float:left;
+          }
+      .frm{
+             background-color:#fff;
+             margin-top:100px;
+             margin-left:300px;
+             align:center;
+         }
+   .check{
+              margin-left:80px;
+              color : #3c3c3c;
+         }  
+        a{            
+             color : #3393FF;
+             font-size:15px;
+             text-decoration:none;
+         }   
+  a:hover{  
+             text-decoration:none;
+         } 
+               
+    .link{ 
+             margin-left:80px;
+         }      
+   .right{
+          width:60%;
+          height:590px;
+          float:left;
+          background-color:green;
+          background-image: url("https://thumbs.dreamstime.com/z/laptop-word-map-globe-business-background-19650160.jpg");
+          
+          background-position: center;
+          background-size: 800px 600px;
+          background-repeat:no-repeate;
+         }  
+.rheading{
+            margin-top:50px;  
+            margin-left:50px;    
+            color:#F1FAFA;
+            font-size:200%
+         }       
+    
+   
+  </style>
+  
+  <div class="left">
+      <html>
+      <body>
+       <p> <img src="https://www.leadsquared.com/wp-content/uploads/2017/09/salesforce-logo.jpg" style="width:50%; margin-left:30px;"/></p>
+         
+        <table>
+             <form style='align:center;' class="frm"> 
+                 <input type="text" name="username" required='required' placeholder="UserName" style="width:300px;height:30px;margin-left:80px;"/><br/><br/>
+                  <input type="password" name="password" required='required' placeholder="Password" style="width:300px;height:30px;margin-left:80px;"/><br/><br/>
+                  <input type="submit" value="Login in to salesforce" style="width:304px;height:30px;margin-left:80px;background-color:#3393FF;"/>
+             </form> <br/><br/>
+             
+             <div class="check">
+                <input type="checkbox" /> <span><b>Remember UserName</b></span>
+             </div><br/>
+             <div class="link">
+                <a href="#">Forgot Password</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">Sign up For free <br/> Login into Custom Domain Account</a>
+             </div>
+        </table>
+        
+      </body>
+    </html> 
+   </div>
+  
+  
+  <div class="right">
+       <div class="rheading">
+          <h1 style="color:#F1FAFA;font-size:200%;">Get Ready to Boost your<br/> Sales with Pardot</h1>
+          <p style="margin-left:190px;">Now Compaies Can Exceed Their<br/> Revenue goals, building a team of marketing<br/> and sales superheros ans more </p>
+       </div>
+  </div>
+  
+</apex:page>

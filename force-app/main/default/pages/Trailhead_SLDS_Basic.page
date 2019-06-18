@@ -1,0 +1,118 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Salesforce Lightning Design System Trailhead Module</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!-- Import the Design System style sheet -->
+            <apex:slds />
+        </head>
+        <body>
+            <!-- REQUIRED SLDS WRAPPER -->
+            <div class="slds-scope">
+                <!-- MASTHEAD -->
+                <p class="slds-text-heading--label slds-m-bottom--small">
+                    Salesforce Lightning Design System Trailhead Module
+                </p>
+                <!-- / MASTHEAD -->
+                <!-- PRIMARY CONTENT WRAPPER -->
+                <div class="myapp">
+                    <!-- SECTION - BADGE COMPONENTS -->
+                    <section aria-labelledby="badges">
+                        <h2 id="badges" class="slds-text-heading--large slds-m-vertical--large">Badges</h2>
+                        <div>
+                            <span class="slds-badge">Badge</span>
+                            <span class="slds-badge slds-theme--inverse">Badge</span>
+                        </div>
+                    </section>
+                    <!-- / SECTION - BADGE COMPONENTS -->
+                    
+                    
+                    <!-- PAGE HEADER -->
+                    <div class="slds-page-header" role="banner">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-has-flexi-truncate">
+                                <!-- HEADING AREA -->
+                                <p class="slds-text-title_caps slds-line-height_reset">Accounts</p>
+                                <h1 class="slds-page-header__title slds-truncate" title="My Accounts">My Accounts</h1>
+                                <!-- / HEADING AREA -->
+                            </div>
+                            <div class="slds-col slds-no-flex slds-grid slds-align-top">
+                                <button class="slds-button slds-button_neutral">New Account</button>
+                            </div>
+                        </div>
+                        <div class="slds-grid">
+                            <div class="slds-col slds-align-bottom slds-p-top_small">
+                                <p class="slds-text-body_small">COUNT items</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / PAGE HEADER -->
+                    
+                    
+                    <!-- HEADING AREA -->
+                    <div class="slds-media slds-no-space slds-grow">
+                        <div class="slds-media__figure">
+                            <span class="slds-avatar slds-avatar_medium">
+                                <img src="{!URLFOR($Asset.SLDS, 'assets/images/avatar1.jpg')}" alt="" />
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <p class="slds-text-title_caps slds-line-height_reset">Accounts</p>
+                            <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="My Accounts">My Accounts</h1>
+                        </div>
+                    </div>
+                    <!-- / HEADING AREA -->
+                  <!-- For using slds svg icons -->
+                    <span class="slds-icon_container slds-icon-standard-account" title="description of icon when needed">
+                        <svg aria-hidden="true" class="slds-icon">
+                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#contact')}"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Account Icon</span>
+                    </span>
+                    <!-- /For using slds svg icons -->
+                    <!-- / Body -->
+                    
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-no-row-hover">
+                        <thead>
+                            <tr class="slds-text-heading_label">
+                                <th scope="col">Account ID</th>
+                                <th scope="col">Account name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="slds-truncate">123</th>
+                                <td class="slds-truncate">Account 1</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="slds-truncate">456</th>
+                                <td class="slds-truncate">Account 2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Close Body -->
+                    
+                    <span class="slds-avatar slds-avatar_x-small">
+                        <img src="/assets/images/avatar1.jpg" alt="meaningful text" />
+                    </span>
+                    <!-- FOOTER -->
+                    <footer role="contentinfo" class="slds-p-around_large">
+                        <!-- LAYOUT GRID -->
+                        <div class="slds-grid slds-grid_align-spread">
+                            <p class="slds-col">Salesforce Lightning Design System Example</p>
+                            <p class="slds-col">&copy; Vivek Kumar</p>
+                        </div>
+                        <!-- / LAYOUT GRID -->
+                    </footer>
+                    <!-- / FOOTER -->
+                    
+                    
+                </div>
+                <!-- / PRIMARY CONTENT WRAPPER -->
+            </div>
+            <!-- / REQUIRED SLDS WRAPPER -->
+        </body>
+    </html>
+</apex:page>

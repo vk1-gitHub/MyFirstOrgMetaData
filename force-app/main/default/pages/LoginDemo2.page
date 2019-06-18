@@ -1,0 +1,25 @@
+<apex:page showHeader="false" sidebar="false">
+  <style>
+    .left{background-color:green;
+          width:50%;
+          height:500px;
+          align:left;
+          float:left;
+         }
+   .right{background-color:red;
+          width:50%;
+          height:500px;
+          align:right;
+          float:left;
+         }
+  </style>
+  <div>
+       <div class="left">
+        
+       </div>
+       
+       <div class="right">
+       </div>
+  </div>
+  
+</apex:page>

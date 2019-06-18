@@ -1,0 +1,106 @@
+<apex:page standardController="Contact" extensions="TestVisualforceController">
+    
+     <apex:form >
+         <apex:pageBlock title="Save Account Using Input Text" id="pgb">
+             <apex:inputText value="{!accName}"/><br/>	
+             <apex:commandButton value="SaveAccount" action="{!saveAccount}" reRender="pgb"/>
+         </apex:pageBlock>
+        <apex:pageBlock title="Insert Account Record" id="pgRef">
+        <apex:pageBlockSection columns="1">
+            <apex:inputField value="{!acc.name}"/>
+            <apex:inputField value="{!acc.type}"/>
+            <apex:inputField value="{!acc.phone}"/>
+        </apex:pageBlockSection>
+        <apex:commandButton value="Save Account" action="{!saveAcc}" reRender="pgRef"/>
+    </apex:pageBlock>
+        
+        <apex:pageBlock title="Contacts Record">
+            <apex:pageBlockTable value="{!contact}" var="con">
+                <apex:column value="{!con.id}"/>
+                <apex:column value="{!con.lastname}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:pageBlock title="Using PageReference" >
+            <apex:pageBlockTable value="{!selectedAccounts}" var="acc">
+                <apex:column value="{!acc.Id}"/>
+                <apex:column value="{!acc.name}"/>
+                <apex:column value="{!acc.type}"/>
+                <apex:column value="{!acc.industry}"/>
+            </apex:pageBlockTable>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="getAllAcounts" action="{!showAllAccounts}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <!--
+    <br/>{!myMethod.name}<br/><br/>
+    {!myMethod.type}<br/>
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:pageBlock title="List of Accounts">
+            <apex:pageBlockTable value="{!acc}" var="a" >
+                <apex:column >
+                    <apex:commandLink value="{!a.name}" reRender="my_block">
+                        <apex:param name="accountId" value="{!a.ID}"/>
+                        <apex:param name="accountName" value="{!a.name}"/>
+                    </apex:commandLink>
+                </apex:column>
+                <apex:column value="{!a.Type}"/>
+                <apex:column value="{!a.Industry}"/>
+            </apex:pageBlockTable>
+            </apex:pageBlock>
+            <apex:pageBlock title="{!$CurrentPage.parameters.accountName}" id="my_block">
+                <apex:detail subject="{!$CurrentPage.parameters.accountId}" />
+            </apex:pageBlock>
+            
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form> 
+    -->
+    
+    
+    <!--<apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!acc}" var="a">
+                <apex:column value="{!a.name}"/>
+                <apex:column value="{!a.Type}"/>
+                <apex:column >
+                    <apex:outputField value="{!a.Industry}">
+                        <apex:inlineEditSupport />
+                    </apex:outputField>
+                </apex:column>
+                
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>-->
+    
+    <!--<apex:pageBlock title="VF Page with Tabs" id="pgb">
+        <apex:tabPanel switchType="ajax">
+            <apex:tab label="Basic information">
+                <b>Name : </b> {!Account.name}<br/>
+                <b>Type : </b> {!Account.Type}<br/>
+                <b>Industry : </b> {!Account.Industry}<br/>
+            </apex:tab>
+            <apex:tab label="Detail information">
+                <apex:detail />
+            </apex:tab>
+            <apex:tab label="Contacts" reRender="pgb">
+                <apex:relatedList list="contacts"/>
+            </apex:tab>
+            <apex:tab label="Opportunity">
+                <apex:relatedList list="opportunities"/>
+            </apex:tab>
+        </apex:tabPanel>
+    </apex:pageBlock>
+    
+    <apex:form >
+        <apex:pageBlock title="Edit Info">
+            <b>Name :  </b><apex:inputField value="{!account.Name}"/><br/>
+            <b>Type : </b><apex:inputField value="{!account.Type}"/><br/><br/>
+            <b>Industry : </b><apex:inputField value="{!account.Industry}"/><br/>
+            <apex:commandButton value="Save Changes" action="{!save}"/>
+        </apex:pageBlock>
+    </apex:form> -->
+</apex:page>

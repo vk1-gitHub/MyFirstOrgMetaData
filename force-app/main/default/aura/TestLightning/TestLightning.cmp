@@ -1,0 +1,104 @@
+<aura:component >
+	<!--
+	<lightning:input type="checkbox" label="Red" name="red" checked="true"/>
+    <lightning:input type="checkbox" label="Blue" name="blue" />
+
+    <lightning:input type="checkbox-button" label="Add pepperoni" name="addPepperoni" checked="true" value="pepperoni" />
+    <lightning:input type="checkbox-button" label="Add salami" name="addSalami" value="salami"/>
+    <lightning:input type="color" label="Color" name="color" />
+    <lightning:input type="date" label="Birthday" name="date" />
+    <lightning:input type="datetime-local" label="Birthday" name="datetime" />
+    <lightning:input type="file" label="Attachment" name="file" multiple="true" accept="image/png, .zip" onchange="{! c.handleFilesChange }"/>
+    <lightning:input type="month" label="Birthday" name="month" />
+    <lightning:input type="number" name="number" label="Number" value="12345" formatter="percent"/>
+    -->
+     <lightning:buttonGroup >
+  <lightning:input type="radio" label="Red" name="color" value="red"/>
+  <lightning:input type="radio" label="Blue" name="color" value="blue" />
+</lightning:buttonGroup>
+<lightning:input type="range" label="Number" name="number" min="0" max="10" />
+<lightning:input type="search" name="search"  label="Search"/>
+
+ 
+
+<!--
+
+<lightning:input type="time" name="time" label="Time" value="time"/>
+<lightning:input type="toggle" name="toggle" label="Slide" value="Slide"/>
+<lightning:input type="url" label="Website" name="website" messageWhenBadInput="Please give a valid Website url" />
+<lightning:input type="week" label="Week" name="week" />
+<lightning:input name="quantity" value="1234567890" label="Quantity" maxlength="10" />
+<lightning:input type="tel" label="Telephone" name="tel" value="343-343-3434" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12"/>
+<lightning:input aura:id="field" label="First name" placeholder="First name" required="true" />
+
+<lightning:input name="firstname" label="First Name" minlength="5" 
+    messageWhenBadInput="Your entry must be at least 5 characters" />
+<lightning:input type="number" name="num" label="Enter Number" min="5" disabled="true"/>
+
+        <lightning:input aura:id="field" label="Last name" placeholder="Last name" required="true" messageWhenValueMissing="Dear Please fill that field"/>        
+        <lightning:button aura:id="submit" type="submit" label="Submit" onclick="{! c.onClick }" />
+-->    <lightning:avatar src="https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg" fallbackIconName="standard:account" alternativeText="Codey Bear" size="large" variant="square"/>
+
+    <lightning:badge label="Developed By Vivek Kumar" /><br/>
+    <lightning:button variant="success" label="Download" iconName="utility:download" iconPosition="left" />
+<hr/>
+     <lightning:buttonGroup >
+        <lightning:button label="Refresh"/>
+        <lightning:button label="Edit"/>
+        <lightning:button label="Save"/>
+         <lightning:button label="Reset"/>
+    </lightning:buttonGroup>
+<lightning:buttonIcon iconName="utility:settings" variant="bare" alternativeText="Settings" iconClass="dark"/>
+
+<lightning:buttonMenu iconName="utility:settings" alternativeText="Settings">
+    <lightning:menuItem label="Font" value="font" />
+    <lightning:menuItem label="Size" value="size"/>
+    <lightning:menuItem label="Format" value="format" />
+</lightning:buttonMenu>
+
+<aura:attribute name="buttonstate" type="Boolean" default="false"/>
+    <lightning:buttonStateful labelWhenOff="Follow"
+        labelWhenOn="Following"
+        labelWhenHover="Unfollow"
+        iconNameWhenOff="utility:add"
+        iconNameWhenOn="utility:check"
+        iconNameWhenHover="utility:close"
+        state="{! v.buttonstate }"
+        onclick="{! c.handleClick }"
+    />
+
+     <lightning:card title="Lightning Card" iconName="standard:account" footer="Card Footer">
+        <aura:set attribute="actions">
+            <lightning:button label="New"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            Card Body
+        </p>
+    </lightning:card>
+
+      <lightning:formattedNumber value="5000" style="currency" /><hr/>
+      <lightning:formattedNumber value="12.34" style="currency"
+ currencyCode="USD" currencyDisplayAs="symbol"/>
+
+ <lightning:icon iconName="utility:error" variant="error"/>
+ <hr/>  
+   <div class="c-container">
+        <lightning:layout horizontalAlign="space">
+            <lightning:layoutItem flexibility="auto" padding="around-medium">
+                1
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                2
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                3
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                4
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+
+
+
+</aura:component>

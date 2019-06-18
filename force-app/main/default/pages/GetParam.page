@@ -1,0 +1,9 @@
+<apex:page controller="GetParam">
+  
+  <apex:pageBlock >
+    <apex:pageBlockTable value="{!listprm}" var="lp">
+      <apex:column headerValue="Parameter Value" value="{!lp}"/>
+    </apex:pageBlockTable>
+  </apex:pageBlock>
+   
+</apex:page>

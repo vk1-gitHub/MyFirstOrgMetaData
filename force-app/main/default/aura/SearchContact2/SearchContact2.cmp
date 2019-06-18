@@ -1,0 +1,51 @@
+<aura:component controller="SearchContactController">
+    
+     <aura:registerEvent name="addcon1" type="c:ContactEvent"/>
+    
+     <aura:attribute name="con" type="Contact"
+                     default="{ 'sobjectType': 'Contact',
+                                'FirstName': '',
+                                'LastName': '',
+                                'Email': '', 
+                                'Phone': ''}"/>
+
+
+    <!-- <aura:attribute name="listcon" type="contact[]"/>  -->
+       
+      <div aria-labelledby="Search Contact">
+        <!-- BOXED AREA -->
+        <fieldset class="slds-box slds-theme--default slds-container--small">
+
+        <legend id="newCamping_Itemform" class="slds-text-heading--small 
+                    slds-p-vertical--medium">
+        Search Contact
+        </legend>
+            
+           <form class="slds-form--stacked">          
+            <lightning:input aura:id="Contactform" label="FirstName"
+                             name="firstName"
+                             value="{!v.con.FirstName}"/> 
+            
+                    
+            <lightning:input aura:id="Contactform" label="LastName"
+                             name="lastName"
+                             value="{!v.con.LastName}" />
+               
+             <lightning:input aura:id="Contactform" label="Email"
+                             name="Email"
+                             value="{!v.con.Email}"/>
+               
+              <lightning:input aura:id="Contactform" label="Phone"
+                             name="Phone"
+                             value="{!v.con.Phone}"/> 
+            
+            <lightning:button label="Search Contact" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.searchContact}"/>
+         </form>  
+      </fieldset>
+    </div>
+    
+    
+</aura:component>

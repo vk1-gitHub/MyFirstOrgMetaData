@@ -1,0 +1,14 @@
+<apex:page standardController="Account" recordSetVar="acc">
+    <apex:form >
+        <apex:pageBlock >
+             <apex:pageBlockTable value="{!acc}" var="a" id="pgb">
+                 <apex:column value="{!a.name}"/>
+                 <apex:column value="{!a.type}"/>
+             </apex:pageBlockTable>
+            <apex:commandButton value="First" action="{!First}"/>
+            <apex:commandButton value="Next" action="{!Next}" disabled="{!NOT(hasNext)}"/>
+            <apex:commandButton value="Prev" action="{!Previous}" disabled="{!NOT(hasPrevious)}"/>
+            <apex:commandButton value="Last" action="{!Last}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

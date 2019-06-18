@@ -1,0 +1,55 @@
+<aura:component >
+  <!--  <force:recordView recordId="0037F00000aupd3QAA" type="FULL"/>
+
+    <force:recordEdit aura:id="edit" recordId="0037F00000aupd3QAA"/>
+    <lightning:button label="Save" onclick="{!c.save}"/>
+    
+    <div style="max-width: 400px;">
+        <lightning:inputAddress
+            aura:id="myaddress"
+            addressLabel="Address"
+            streetLabel="Street"
+            cityLabel="City"
+            countryLabel="Country"
+            provinceLabel="State"
+            postalCodeLabel="PostalCode"
+            street="1 Market St."
+            city="San Francisco"
+            country="US"
+            province="CA"
+            postalCode="94105"
+            required="true"
+        />
+    </div>-->
+    
+   
+    <aura:attribute name="provinceOptions" type="List" default="[
+        {'label': 'California', 'value': 'CA'},
+        {'label': 'Texas', 'value': 'TX'},
+        {'label': 'Washington', 'value': 'WA'},
+    ]"/>
+    <aura:attribute name="countryOptions" type="List" default="[
+        {'label': 'United States', 'value': 'US'},
+        {'label': 'Japan', 'value': 'JP'},
+        {'label': 'China', 'value': 'CN'},
+    ]"/>
+    <div style="max-width: 400px;">
+        <lightning:inputAddress aura:id="myaddress"
+            addressLabel="Address"
+            streetLabel="Street"
+            cityLabel="City"
+            countryLabel="Country"
+            provinceLabel="Province/State"
+            postalCodeLabel="PostalCode"
+            street="1 Market St."
+            city="San Francisco"
+            country="US"
+            countryOptions="{! v.countryOptions }"
+            provinceOptions="{! v.provinceOptions }"
+            postalCode="94105"
+            required="true"
+        />
+    </div>
+
+
+</aura:component>
